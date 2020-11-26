@@ -55,18 +55,22 @@ public class Matango extends Monster {
 		return a;
 	}
 
+	public void poison(Player h) {
+		h.hp -= 2;
+		Time.TLDA80(this.name+"の毒で2ポイントダメージを受け残り"+h.hp);
+	}
+
 
 	public void die(Matango a) {
 		Time.TLDA50(this.name+"は力尽きた");
 	}
-	
-	public void select(Hero h,Matango m) {
+
+	public void select(Monster m) {
 		int s = new java.util.Random().nextInt(4);
 		if(m.hp>(m.hp/2)) {
-			swich(s) {
-				case 0:
-				case 1:
-		}
+			if(s==0 || s==1) {
+//				attack1();
+			}
 		}
 	}
 

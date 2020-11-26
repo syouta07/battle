@@ -7,9 +7,24 @@ public class Player {			//勇者アカウント
 						//**//アイテム{回復薬、薬、解毒薬}
 	public String name;
 	int hp;  int mp;	public int many =100;
-	int damage;
+	int damage;			boolean abnormalPoison;
 	int hit; int Level;
 	int EXP; int speed;
+	
+	public void PoisonAbnormal() {
+		this.abnormalPoison = true;
+		Time.TLDA80("毒におかされている\n\n");
+		
+	}
+	
+	public void PoisonHeal() {
+		this.abnormalPoison = false;
+		Time.TLDA80("毒状態から回復した‼\n\n");
+		
+	}
+	
+	
+	
 			//**////**////**////**////**////**////**////**////**//
 			//**//    	    								//**//
 			//**//		ノーマル攻撃判定クリーンヒット2%	//**//
