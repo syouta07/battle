@@ -27,15 +27,15 @@ public class Player {			//勇者アカウント
 
 
 	public Object damage(Monster a, Monster b) {
-		Time.TLDA80("どちらに攻撃しますか？\n\n1:"+a+"2:"+b);
+		Time.TLDA80("どちらに攻撃しますか？\n\n1:"+a.hp+"2:"+b.name);
 		int  choose =new java.util.Scanner(System.in).nextInt()-1;
 		if(choose==0) {
 			a.hp -=this.damage;
-			Time.TLDA80(this.name+"は"+a+"に"+this.damage+"を与えた\n\n",a+"の残りHPは"+b+"です\n\n");
+			Time.TLDA80(this.name+"は"+a.name+"に"+this.damage+"を与えた\n\n",a.name+"の残りHPは"+a.hp+"です\n\n");
 			return a;
 		}else {
 			b.hp -=this.damage;
-			Time.TLDA80(this.name+"は"+c+"に"+this.damage+"を与えた\n\n",c+"の残りHPは"+d+"です\n\n");
+			Time.TLDA80(this.name+"は"+b.name+"に"+this.damage+"を与えた\n\n",b.name+"の残りHPは"+b.hp+"です\n\n");
 		}return b;
 	}
 	public Object damage(Monster a,Monster b,Monster c) {
@@ -43,47 +43,47 @@ public class Player {			//勇者アカウント
 		int  choose =new java.util.Scanner(System.in).nextInt()-1;
 		if(choose==0) {
 			a.hp -=this.damage;
-			Time.TLDA80(this.name+"は"++"に"+this.damage+"を与えた\n\n",a+"の残りHPは"+b+"です\n\n");
+			Time.TLDA80(this.name+"は"+a.name+"に"+this.damage+"を与えた\n\n",a.name+"の残りHPは"+a.hp+"です\n\n");
 			return a;
 		}else if(choose==1){
 			b.hp-=this.damage;
-			Time.TLDA80(this.name+"は"+c+"に"+this.damage+"を与えた\n\n",c+"の残りHPは"+d+"です\n\n");
+			Time.TLDA80(this.name+"は"+b.name+"に"+this.damage+"を与えた\n\n",b.name+"の残りHPは"+b.hp+"です\n\n");
 			return b;
 		}else {
 			c.hp-=this.damage;
-			Time.TLDA80(this.name+"は"+e+"に"+this.damage+"を与えた\n\n",e+"の残りHPは"+f+"です\n\n");
+			Time.TLDA80(this.name+"は"+c.name+"に"+this.damage+"を与えた\n\n",c.name+"の残りHPは"+c.hp+"です\n\n");
 			return c;
 		}
 	}
 
 
-	public int damage(Monster a,Monster b,Monster c,Monster d) {
+	public Monster damage(Monster a,Monster b,Monster c,Monster d) {
 		Time.TLDA80("どちらに攻撃しますか？\n\n1:"+a+"2:"+b);
 		int  choose =new java.util.Scanner(System.in).nextInt()-1;
 		if(choose==0) {
-			b -=this.damage;
-			Time.TLDA80(this.name+"は"+a+"に"+this.damage+"を与えた\n\n",a+"の残りHPは"+b+"です\n\n");
-			return d;
+			a.hp -=this.damage;
+			Time.TLDA80(this.name+"は"+a.name+"に"+this.damage+"を与えた\n\n",a.name+"の残りHPは"+a.hp+"です\n\n");
+			return a;
 		}else if(choose==1){
-			d-=this.damage;
-			Time.TLDA80(this.name+"は"+c+"に"+this.damage+"を与えた\n\n",c+"の残りHPは"+d+"です\n\n");
-			return d;
+			d.hp-=this.damage;
+			Time.TLDA80(this.name+"は"+b.name+"に"+this.damage+"を与えた\n\n",b.name+"の残りHPは"+b.hp+"です\n\n");
+			return b;
 		}else if(choose==2){
-			f-=this.damage;
-			Time.TLDA80(this.name+"は"+e+"に"+this.damage+"を与えた\n\n",e+"の残りHPは"+f+"です\n\n");
-			return f;
+			c.hp-=this.damage;
+			Time.TLDA80(this.name+"は"+c.name+"に"+this.damage+"を与えた\n\n",c.name+"の残りHPは"+c.hp+"です\n\n");
+			return c;
 		}else {
-			h-=this.damage;
-			Time.TLDA80(this.name+"は"+g+"に"+this.damage+"を与えた\n\n",g+"の残りHPは"+h+"です\n\n");
-			return h;
+			d.hp-=this.damage;
+			Time.TLDA80(this.name+"は"+d.name+"に"+this.damage+"を与えた\n\n",d.name+"の残りHPは"+d.hp+"です\n\n");
+			return d;
 		}
 	}
 
 
-	public int sleep(String a,int b) {
-		b += this.hp * (2/3);
-		Time.TLDA80(this.name+"は眠った。HPが"+b+"になった");
-		return b;
+	public Hero sleep(Hero h) {
+		h.hp += this.hp * (2/3);
+		Time.TLDA80(this.name+"は眠った。HPが"+h.hp+"になった");
+		return h;
 	}
 		//**////**////**////**////**////**////**////**////**//
 		//**//    	    								//**//
@@ -106,5 +106,12 @@ public class Player {			//勇者アカウント
 
 		return x;
 
+	}
+	public static Player die(Player p) {
+		Time.TLDA50(p.name+"のHPがなくなった");
+		Time.TLDA100("・・・・・\n\n");
+		Time.TLDA50("ゲームオーバー");
+		return p;
+		
 	}
 }

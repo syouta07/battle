@@ -1,13 +1,13 @@
 package バトル11_26;
 
-public class Matango {
+public class Matango extends Monster {
 	int damage = new java.util.Random().nextInt(9)+4;
 	int heel = new java.util.Random().nextInt(3)+4;
 	String name;
 	int hp = 30; int MaxHp = 30;
 	int mp = 10; int MaxMp = 10;
 
-	public int action(String x, int y){
+	public Hero action(Hero h){
 		String [] action = {"様子をうかがっている","急に襲ってきた","眠っている"};
 		int mata= new java.util.Random().nextInt(4);
 		String comment= "キノコが現れたキノコ"+action[mata];
@@ -18,32 +18,32 @@ public class Matango {
 			break;
 		case 1:
 			Time.TLDA50(comment+"が"+action[1]+"\n\n");
-			attack1(x,y);
+			attack1(h);
 			break;
 		case 2:
 			Time.TLDA50(comment+"が"+action[2]+"\n\n");
 			break;
 		}
-		return y;
+		return h;
 	}
 
 
-	public int attack1(String x,int y){
+	public Hero attack1(Hero h){
 		int at=new java.util.Random().nextInt(9)+2;
-		y -= at;
-		Time.TLDA50(this.name+"は"+x+"に"+at+"ダメージ与えた");
-		if(y>=0) {
-			attack1(x,y);
+		h.hp -= at;
+		Time.TLDA50(this.name+"は"+h.name+"に"+at+"ダメージ与えた");
+		if(h.hp>0) {
+			attack1(h);
 		}else {
-			die(x,y);
+			Player.die(h);
 		}
-		return y;
+		return h;
 	}
 
 
-	public int heel(int x) {
+	public Matango heel(Matango a) {
 		Time.TLDA50(this.name+"はヒールを使った。\n\n");
-		if(this.hp==this.MaxHp) {
+		if(this.hp==this.MaxHp || this.mp<0) {
 			Time.TLDA50("何も起こらなかった。\n\n");
 		}else if(heel+this.hp>=this.MaxHp) {
 			this.mp -=2;
@@ -52,11 +52,26 @@ public class Matango {
 		}else {
 			Time.TLDA50(this.name+"は"+this.heel+"回復し,HP"+this.hp+",MP"+this.mp+"になった。");
 		}
-		return x;
+		return a;
 	}
 
 
-	public void die(String x,int y) {
+	public void die(Matango a) {
 		Time.TLDA50(this.name+"は力尽きた");
+	}
+	
+	public void select(Hero h,Matango m) {
+		int s = new java.util.Random().nextInt(4);
+		if(m.hp>(m.hp/2)) {
+			swich(s) {
+				case 0:
+				case 1:
+		}
+		}
+	}
+
+
+	private void run() {
+		Time.TLDA50(this.name+"は逃げ出した。");
 	}
 }

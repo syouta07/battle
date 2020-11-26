@@ -4,7 +4,9 @@ public class Monster {
 	String name;
 	int hp; int MaxHp;
 	int mp; int MaxMp;
-	public Object attack(Monster m) {
+	public Object attack(Hero h) {
+		
+		return h;
 		
 	}
 }
