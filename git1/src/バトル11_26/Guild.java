@@ -59,7 +59,7 @@ public class Guild {			//ギルド商会
 		}
 	}
 	public static void back(){
-		StoryTutorial.tutorial2();
+
 	}
 
 

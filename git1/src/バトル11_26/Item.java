@@ -6,10 +6,15 @@ public class Item {
 		/*	薬草  */
 	public void Herbs(Player a) {
 		int heelPoint=15;
-		if(a.hp-a.MaxHp)
-		a.hp +=heelPoint;
-		Time.TLDA80(a.name +"は薬草を使った。HPは"+a.hp+"まで回復した。");
+		if(a.hp+heelPoint<=a.MaxHp) {
+			a.hp +=heelPoint;
+			Time.TLDA80(a.name +"は薬草を使った。HPは"+a.hp+"まで回復した。");
+		}else if(a.MaxHp-15<a.hp) {
+
+			Time.TLDA80(a.name+"は薬草を使った");
+		}
 	}
+
 
 	public void recoveryAgents(Player a) {
 		a.hp += 30;
@@ -44,5 +49,7 @@ public class Item {
 			return false;
 		}
 	}
+
+	public static void
 }
 
