@@ -10,7 +10,7 @@ public class Item {
 			a.hp +=heelPoint;
 			Time.TLDA80(a.name +"は薬草を使った。HPは"+a.hp+"まで回復した。");
 		}else if(a.MaxHp-15<a.hp) {
-
+			a.hp = a.MaxHp;
 			Time.TLDA80(a.name+"は薬草を使った");
 		}
 	}
@@ -49,7 +49,5 @@ public class Item {
 			return false;
 		}
 	}
-
-	public static void
 }
 
