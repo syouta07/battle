@@ -19,7 +19,7 @@ public class Time{
 		catch (InterruptedException e) {e.printStackTrace();}
 	}
 	public static void rug30() {
-		try {Thread.sleep(30);}
+		try {Thread.sleep(3000);}
 		catch (InterruptedException e) {e.printStackTrace();}
 	}
 
@@ -52,7 +52,10 @@ public class Time{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDA80(String x) {
 		char data[] = x.toCharArray();
 		int arr_num = data.length;
@@ -65,11 +68,14 @@ public class Time{
 			}System.out.print(data[i]);
 		}
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDA100(String x) {
 		char data[] = x.toCharArray();
 		int arr_num = data.length;
@@ -81,12 +87,15 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
 		}
+		System.out.println("");
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
+
+
 	public static void TLDA300(String x) {
 		char data[] = x.toCharArray();
 		int arr_num = data.length;
@@ -103,6 +112,7 @@ public class Time{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
 
 			//**//コメントが時間差で一文字づつ表示される
@@ -120,6 +130,8 @@ public class Time{
 			}System.out.print(data[i]);
 		}
 	}
+
+
 	public static void TLDB80(String x) {
 		char data[] = x.toCharArray();
 		int arr_num = data.length;
@@ -143,6 +155,7 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
 		}
+		System.out.println("");
 	}
 
 	public static void TLDB300(String x){
@@ -156,6 +169,7 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
 		}
+		System.out.println("");
 	}
 	//**//2コメント2ラグ
 	//**//ラグタイム(1000)
@@ -189,7 +203,10 @@ public class Time{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDA80(String x,String y) {
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -220,7 +237,10 @@ public class Time{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDA100(String x,String y) {
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -251,7 +271,10 @@ public class Time{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDA300(String x,String y) {
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -282,6 +305,7 @@ public class Time{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
 
 
@@ -313,7 +337,10 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDB80(String x,String y) {
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -339,7 +366,10 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDB100(String x,String y) {
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -365,7 +395,10 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDB300(String x,String y) {
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -391,6 +424,7 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
 		}
+		System.out.println("");
 	}
 
 
@@ -440,7 +474,10 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data2[i]);
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDB80(String x,String y,String z){
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -481,7 +518,11 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data2[i]);
 		}
+
+		System.out.println("");
 	}
+
+
 	public static void TLDB100(String x,String y,String z){
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -522,7 +563,10 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data2[i]);
 		}
+		System.out.println("");
 	}
+
+
 	public static void TLDB300(String x,String y,String z){
 		char data[] = x.toCharArray();
 		char data1[] = y.toCharArray();
@@ -563,6 +607,7 @@ public class Time{
 			catch(InterruptedException e){
 			}System.out.print(data2[i]);
 		}
+		System.out.println("");
 	}
 
 }

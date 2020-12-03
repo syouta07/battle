@@ -1,4 +1,8 @@
-package バトル11_26;
+package モンスター;
+
+import バトル11_26.Time;
+import 主人公.Hero;
+import 主人公.Player;
 
 public class Matango extends Monster {
 	int damage = new java.util.Random().nextInt(9)+4;
@@ -30,9 +34,9 @@ public class Matango extends Monster {
 
 	public Hero attack1(Hero h){
 		int at=new java.util.Random().nextInt(9)+2;
-		h.hp -= at;
-		Time.TLDA50(this.name+"は"+h.name+"に"+at+"ダメージ与えた");
-		if(h.hp>0) {
+		h.setHp(h.getHp() - at);
+		Time.TLDA50(this.name+"は"+h.getName()+"に"+at+"ダメージ与えた");
+		if(h.getHp()>0) {
 			attack1(h);
 		}else {
 			Player.die(h);
@@ -56,8 +60,8 @@ public class Matango extends Monster {
 	}
 
 	public void poison(Player h) {
-		h.hp -= 2;
-		Time.TLDA80(this.name+"の毒で2ポイントダメージを受け残り"+h.hp);
+		h.setHp(h.getHp() - 2);
+		Time.TLDA80(this.name+"の毒で2ポイントダメージを受け残り"+h.getHp());
 	}
 
 

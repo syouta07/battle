@@ -1,4 +1,7 @@
-package バトル11_26;
+package 町内_店_ギルド_家_協会;
+
+import バトル11_26.Time;
+import 主人公.Player;
 
 public class Home {								/*ヒーローのHPまだ決まってないから
 																	食事風呂での回復量が未定*/
@@ -40,7 +43,8 @@ public class Home {								/*ヒーローのHPまだ決まってないから
 	}
 
 
-	public void homeSleep() {
-//		h.hp +=50;
+	public void homeSleep(Player p) {
+		int hp= p.getHp();
+		hp = p.getMaxHp();
 	}
 }

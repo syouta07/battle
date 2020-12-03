@@ -1,4 +1,7 @@
-package バトル11_26;
+package フィールド;
+
+import 町内_店_ギルド_家_協会.AllAction;
+import 町内_店_ギルド_家_協会.Guild;
 
 public class Cave {
 

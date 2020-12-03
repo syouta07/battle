@@ -1,6 +1,6 @@
-package バトル11_26;
+package 町内_店_ギルド_家_協会;
 
-public class Place {			//*村に戻るが完成していない*//
+public class Association {			//*村に戻るが完成していない*//
 
 
 							//教会でのアクション

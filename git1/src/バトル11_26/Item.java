@@ -1,23 +1,25 @@
 package バトル11_26;
 
+import 主人公.Player;
+
 public class Item {
 	boolean i;
 
 		/*	薬草  */
 	public void Herbs(Player a) {
 		int heelPoint=15;
-		if(a.hp+heelPoint<=a.MaxHp) {
-			a.hp +=heelPoint;
-			Time.TLDA80(a.name +"は薬草を使った。HPは"+a.hp+"まで回復した。");
-		}else if(a.MaxHp-15<a.hp) {
-			a.hp = a.MaxHp;
-			Time.TLDA80(a.name+"は薬草を使った");
+		if(a.getHp()+heelPoint<=a.MaxHp) {
+			a.setHp(a.getHp() + heelPoint);
+			Time.TLDA80(a.getName() +"は薬草を使った。HPは"+a.getHp()+"まで回復した。");
+		}else if(a.MaxHp-15<a.getHp()) {
+			a.setHp(a.MaxHp);
+			Time.TLDA80(a.getName()+"は薬草を使った");
 		}
 	}
 
 
 	public void recoveryAgents(Player a) {
-		a.hp += 30;
+		a.setHp(a.getHp() + 30);
 
 	}
 

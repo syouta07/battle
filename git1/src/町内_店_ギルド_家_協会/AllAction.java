@@ -1,4 +1,7 @@
-package バトル11_26;
+package 町内_店_ギルド_家_協会;
+
+import フィールド.Cave;
+import フィールド.Wilderness;
 
 public class AllAction {
 
@@ -11,7 +14,7 @@ public class AllAction {
 			System.out.println("勇者は、"+place[Ch]+"へ向かった");
 			switch(Ch) {
 			case 0:
-				Place.association();
+				Association.association();
 				break;
 			case 1:
 				Bank.bankAction();
