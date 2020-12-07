@@ -32,10 +32,10 @@ public class Matango extends Monster {
 	}
 
 
-	public Hero attack1(Hero h){
+	public Player attack1(Player h){
 		int at=new java.util.Random().nextInt(9)+2;
-		h.setHp(h.getHp() - at);
-		Time.TLDA50(this.name+"は"+h.getName()+"に"+at+"ダメージ与えた");
+		h.setHp(h.name - at);
+		Time.TLDA50(this.name+"は"+h.name()+"に"+at+"ダメージ与えた");
 		if(h.getHp()>0) {
 			attack1(h);
 		}else {
@@ -81,5 +81,12 @@ public class Matango extends Monster {
 
 	private void run() {
 		Time.TLDA50(this.name+"は逃げ出した。");
+	}
+
+
+	@Override
+	public void attack(Player p) {
+		// TODO 自動生成されたメソッド・スタブ
+
 	}
 }

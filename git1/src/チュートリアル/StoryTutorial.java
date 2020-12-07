@@ -47,7 +47,7 @@ public class StoryTutorial {
 		Time.TLDA100("\tギルドに行く前に名前を決めましょう");
 		x.name();
 		Time.TLDA300("\n\nてくてくてくてくてく\n\n・・・・・\n");
-		Time.TLDA80(x.getName()+":","ここがギルドか！\n");
+		Time.TLDA80((x.name()+":","ここがギルドか！\n");
 		Time.TLDA300("\nガチャ\n");
 		Time.TLDA300("…ギー\n");
 		System.out.print("\nギルドの受付: ");
