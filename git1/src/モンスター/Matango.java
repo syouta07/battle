@@ -34,8 +34,8 @@ public class Matango extends Monster {
 
 	public Player attack1(Player h){
 		int at=new java.util.Random().nextInt(9)+2;
-		h.setHp(h.name - at);
-		Time.TLDA50(this.name+"は"+h.name()+"に"+at+"ダメージ与えた");
+		h.hp = h.name - at;
+		Time.TLDA50(this.name+"は"+h.name+"に"+at+"ダメージ与えた");
 		if(h.getHp()>0) {
 			attack1(h);
 		}else {

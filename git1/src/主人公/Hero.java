@@ -14,12 +14,12 @@ public class Hero extends Player{
 //	public String getName() {
 //		return this.getName();
 //	}
-//	public void setName(String name) {
+//	public static void setName(String name) {
 //		this.name = name;
 //	}
 
 	//ヒーローの名前を決める
-	public void name() {
+	public static void name(Player p) {
 		Time.TLDA50("名前を何にしますか？\n");
 		System.out.print("=>");
 		String h = new java.util.Scanner(System.in).nextLine();
@@ -27,10 +27,10 @@ public class Hero extends Player{
 		System.out.println("1:はい 2:いいえ ");
 		int no = new java.util.Scanner(System.in).nextInt()-1;
 		if(no==0) {
-			this.name = h;
+			 p.name=h;
 			Time.TLDA50(h+"に決定しました！");
 		}else {
-			name();
+			name(p);
 		}
 
 	}
@@ -74,7 +74,7 @@ public class Hero extends Player{
 		for (int i=0; i<1; i++) {
 		int no = new java.util.Random().nextInt(5)+2;
 		m.hp -= no;
-		Time.TLDA80(this.name+"は"+m.name()+"に"+no+"を与えた\n\n",this.getName()+"の残りHPは"+this.getHp()+"\n\n");
+		Time.TLDA80(this.name+"は"+m.name+"に"+no+"を与えた\n\n",this.getName()+"の残りHPは"+this.getHp()+"\n\n");
 		}
 		return m;
 	}
@@ -108,5 +108,7 @@ public class Hero extends Player{
 		}
 		return p;
 	}
+
+
 
 }

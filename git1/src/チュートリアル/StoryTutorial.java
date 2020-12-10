@@ -1,6 +1,7 @@
 package チュートリアル;
 
 import バトル11_26.Time;
+import 主人公.Hero;
 import 主人公.Player;
 import 町内_店_ギルド_家_協会.Home;
 
@@ -45,9 +46,9 @@ public class StoryTutorial {
 //		}
 		Time.TLDA100("\tそういえば名前を決めておかなければいけないな！");
 		Time.TLDA100("\tギルドに行く前に名前を決めましょう");
-		x.name();
+		Hero.name(x);
 		Time.TLDA300("\n\nてくてくてくてくてく\n\n・・・・・\n");
-		Time.TLDA80((x.name()+":","ここがギルドか！\n");
+		Time.TLDA80(x.name+":"+"ここがギルドか！\n");
 		Time.TLDA300("\nガチャ\n");
 		Time.TLDA300("…ギー\n");
 		System.out.print("\nギルドの受付: ");
@@ -63,19 +64,19 @@ public class StoryTutorial {
 		while(!ans) {
 			System.out.print("==>");
 			String name = new java.util.Scanner(System.in).nextLine();
-			if(!(name.equals(x.getName()))) {
+			if(!(name.equals(x.name))) {
 				System.out.print("ギルド受付:");
 				Time.TLDA80("名前を間違っているよ正式な手続きだから間違えないようにね","もう一度書き直しな！");
 			}else {
 				ans= true;
 			}
 		}
-		
+
 
 		Time.TLDB80("ギルドの受付:登録終わったよ。\n");
 		Time.TLDA80("\nギルドの受付:強いモンスターを倒して早くAランクを目指しな‼");
 		Time.TLDA80("\t\t"+"どうださっそくクエストをうけるかい？\n");
-		Time.TLDA80(x.getName()+"今日はやめておこう\n");
+		Time.TLDA80(x.name+"今日はやめておこう\n");
 		System.out.println("\n\n1:いいえ");
 		int c = new java.util.Scanner(System.in).nextInt()-1;
 		System.out.print("\nギルドの受付:");
@@ -87,18 +88,18 @@ public class StoryTutorial {
 
 	public static void tutorial2(Player x){
 		Time.TLDB300("\n\nがやがやがや\n");
-		System.out.print(x.getName()+":");
+		System.out.print(x.name+":");
 		Time.TLDB300("(…町はにぎやかだな…)\n");
 		System.out.print("村長:");
-		Time.TLDB80(x.getName()+"くん登録が終わったみたいだな!\n");
+		Time.TLDB80(x.name+"くん登録が終わったみたいだな!\n");
 		System.out.print("\n村長:");
 		Time.TLDB80("用事は済んだんだろ？"+"今日はゆっくり町でも見て装備や道具をそろえるといい\n");
-		Time.TLDB80("\t\t\tあと伝え忘れていたが、"+x.getName()+"用に家を準備してある","しばらくの間はそこを拠点にするといい\n");
+		Time.TLDB80("\t\t\tあと伝え忘れていたが、"+x.name+"用に家を準備してある","しばらくの間はそこを拠点にするといい\n");
 		Time.rug20();
 		tutorialTown(x);
 	}
 	public static void tutorialTown(Player x){
-		System.out.println(x.getName()+": ");
+		System.out.println(x.name+": ");
 		Time.TLDB80("どこに行こうかな\n");
 		System.out.println("[1]:武器屋 [2]:防具屋 [3]:商店 [4]:帰る\n");
 		int a  =new java.util.Scanner(System.in).nextInt()-1;
