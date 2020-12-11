@@ -1,6 +1,7 @@
 package バトル11_26;
 
 import 主人公.Player;
+import 機能.Time;
 
 public class Item {
 	boolean i;

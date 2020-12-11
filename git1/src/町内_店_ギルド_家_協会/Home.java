@@ -1,13 +1,13 @@
 package 町内_店_ギルド_家_協会;
 
-import バトル11_26.Time;
 import 主人公.Player;
+import 機能.Time;
 
 public class Home {								/*ヒーローのHPまだ決まってないから
 																	食事風呂での回復量が未定*/
 
 
-	public static void Action(){
+	public static void Action(Player p){
 		int [] food = new int[50];
 
 		System.out.println("何をしますか？");
@@ -20,17 +20,17 @@ public class Home {								/*ヒーローのHPまだ決まってないから
 					Time.TLDB80(food[i]+",");
 				}
 			}
-			Action();
+			Action(p);
 		}else if(a==1) {
-//			h.hp +=h.hpMax;
+			p.setHp(p.getHp() + p.getHpMax());
 			Time.TLDB300("・・・・・・");
 			Time.TLDB300("体力がhp回復した\n\n");
-			Action();
+			Action(p);
 		}else if(a==2) {
 			Time.TLDB80("寝ることにしよう\n\n");
 			Time.TLDB300("・・・・・");
 			Time.TLDB80("疲れがとれた");
-			Action();
+			Action(p);
 		}else {
 			Time.TLDB80("暇だからどこか出かけようかな\n\n");
 			try {

@@ -1,6 +1,6 @@
 package 町内_店_ギルド_家_協会;
 
-import バトル11_26.Time;
+import 機能.Time;
 
 public class Town {
 

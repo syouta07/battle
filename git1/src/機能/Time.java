@@ -1,4 +1,4 @@
-package バトル11_26;
+package 機能;
 
 public class Time{
 

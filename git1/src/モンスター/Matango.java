@@ -1,8 +1,8 @@
 package モンスター;
 
-import バトル11_26.Time;
 import 主人公.Hero;
 import 主人公.Player;
+import 機能.Time;
 
 public class Matango extends Monster {
 	int damage = new java.util.Random().nextInt(9)+4;

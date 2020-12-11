@@ -1,39 +1,65 @@
 package 主人公;
 
-import バトル11_26.Time;
 import モンスター.Monster;
+import 機能.Time;
 
 public class Hero extends Player{
 	int hp;    int mp;
 	int maxHp; int maxMp;
-	int level=1;
-	int EXP;
+	private int level; int hpMax;
+	private int EXP;
 	int maxLevel = 99;
 	String name;
 
-//	public String getName() {
-//		return this.getName();
-//	}
-//	public static void setName(String name) {
-//		this.name = name;
-//	}
 
-	//ヒーローの名前を決める
-	public static void name(Player p) {
-		Time.TLDA50("名前を何にしますか？\n");
-		System.out.print("=>");
-		String h = new java.util.Scanner(System.in).nextLine();
-		Time.TLDA50(h+"でよろしいですか？\n\n");
-		System.out.println("1:はい 2:いいえ ");
-		int no = new java.util.Scanner(System.in).nextInt()-1;
-		if(no==0) {
-			 p.name=h;
-			Time.TLDA50(h+"に決定しました！");
-		}else {
-			name(p);
-		}
 
+	public Hero(String name) {
+		this.name = name;
+		this.hp=100;
+		this.mp=10;
+		this.setLevel(1);
 	}
+
+	public String getName() {
+		return this.name;
+	}
+	@Override
+	public void setName(String name) {
+		this.name=name;
+	}
+
+	public int getHpMax() {
+		return this.hpMax;
+	}
+
+	public void setHpMax(int hpMax) {
+		this.hpMax = this.hpMax;
+	}
+
+	public int getEXP() {
+		return this.EXP;
+	}
+
+	public void setEXP(int exp) {
+		this.EXP = exp;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+
+	//**////**////**////**////**////**////**////**////**//
+	//**//    	    								//**//
+	//**//			  名前を決めるメゾット		    //**//
+	//**//											//**//
+	//**////**////**////**////**////**////**////**////**//
+
+
 	public int getHp() {
 		return hp;
 	}
@@ -90,11 +116,25 @@ public class Hero extends Player{
 		Time.TLDA80("逃げ切れなかった");///***///バトルに引き戻される場合
 		}
 	}
+
+
+	//**////**////**////**////**////**////**////**////**//
+	//**//    	    								//**//
+	//**//			  主人公が死んだとき		    //**//
+	//**//											//**//
+	//**////**////**////**////**////**////**////**////**//
+
 	public void die(Player p) {
 		Time.TLDA50(this.name+"のHPがなくなった");
 		Time.TLDA100("・・・・・\n\n");
 		Time.TLDA50("ゲームオーバー");
 	}
+
+	//**////**////**////**////**////**////**////**////**//
+	//**//    	    								//**//
+	//**//			  	   回復魔法 		 	    //**//
+	//**//											//**//
+	//**////**////**////**////**////**////**////**////**//
 
 	@Override
 	public Player heel(Player p) {
@@ -104,10 +144,14 @@ public class Hero extends Player{
 		}else {
 			this.hp+=this.maxHp;
 			Time.TLDA50(this.name+"は、"+this.hp+"まで回復した‼");
-
 		}
 		return p;
 	}
+
+
+
+
+
 
 
 
