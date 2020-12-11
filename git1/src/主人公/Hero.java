@@ -4,12 +4,12 @@ import モンスター.Monster;
 import 機能.Time;
 
 public class Hero extends Player{
-	int hp;    int mp;
-	int maxHp; int maxMp;
-	private int level; int hpMax;
+	private int hp;    private int mp;
+	private int maxHp; private int maxMp;
+	private int level; private int hpMax;
 	private int EXP;
 	int maxLevel = 99;
-	String name;
+	private String name;
 
 
 

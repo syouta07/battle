@@ -35,7 +35,6 @@ public class Level {
 	}
 	public void level10(Player p) {
 		int comparison =(p.getEXP()-p.getLevel()*25);
-		int count=0;
 
 		//レベル1の時のみかつEXP25以上でlevelプラス
 		if(p.getLevel()==1 && p.getEXP()>25) {
@@ -57,7 +56,6 @@ public class Level {
 	}
 	public void level20(Player p) {
 		int comparison =(p.getEXP()-225-p.getLevel()*50);
-		int count=0;
 
 
 		//レベル20レベル以下の時のループ
@@ -75,7 +73,6 @@ public class Level {
 	}
 	public void level30(Player p) {
 		int comparison =(p.getEXP()-725-p.getLevel()*75);
-		int count=0;
 
 
 		//レベル30レベル以下の時のループ
@@ -87,13 +84,12 @@ public class Level {
 				p.setLevel(p.getLevel()+1);
 			}
 		}
-		if(p.getLevel()>=30 && p.EXP>=1450) {
+		if(p.getLevel()>=30 && p.getEXP()>=1450) {
 			level40(p);
 		}
 	}
 	public void level40(Player p) {
-		int comparison =(p.EXP-1450-p.getLevel()*100);
-		int count=0;
+		int comparison =(p.getEXP()-1450-p.getLevel()*100);
 
 
 		//レベル40レベル以下の時のループ
@@ -105,13 +101,12 @@ public class Level {
 				p.setLevel(p.getLevel()+1);
 			}
 		}
-		if(p.getLevel()>=40 && p.EXP>=2450) {
+		if(p.getLevel()>=40 && p.getEXP()>=2450) {
 			level50(p);
 		}
 	}
 	public void level50(Player p) {
 		int comparison =(p.EXP-2450-p.getLevel()*125);
-		int count=0;
 
 
 		//レベル50レベル以下の時のループ
@@ -123,13 +118,12 @@ public class Level {
 				p.setLevel(p.getLevel()+1);
 			}
 		}
-		if(p.getLevel()>=50 && p.EXP>=3700) {
+		if(p.getLevel()>=50 && p.getEXP()>=3700) {
 			level60(p);
 		}
 	}
 	public void level60(Player p) {
-		int comparison =(p.EXP-3700-p.getLevel()*150);
-		int count=0;
+		int comparison =(p.getEXP()-3700-p.getLevel()*150);
 
 
 		//レベル60レベル以下の時のループ
@@ -141,15 +135,13 @@ public class Level {
 				p.setLevel(p.getLevel()+1);
 			}
 		}
-		if(p.getLevel()>=60 && p.EXP>=5200) {
+		if(p.getLevel()>=60 && p.getEXP()>=5200) {
 			level70(p);
 		}
 	}
 
 	public void level70(Player p) {
-		int comparison =(p.EXP-5200-p.getLevel()*175);
-		int count=0;
-
+		int comparison =(p.getEXP()-5200-p.getLevel()*150);
 
 		//レベル70レベル以下の時のループ
 		if(p.getLevel()<=70 && comparison/175>=1) {
@@ -160,13 +152,12 @@ public class Level {
 				p.setLevel(p.getLevel()+1);
 			}
 		}
-		if(p.getLevel()>=70 && p.EXP>=6950) {
+		if(p.getLevel()>=70 && p.getEXP()>=6950) {
 			level80(p);
 		}
 	}
 	public void level80(Player p) {
-		int comparison =(p.EXP-6950-p.getLevel()*200);
-		int count=0;
+		int comparison =(p.getEXP()-6950-p.getLevel()*200);
 
 
 		//レベル80レベル以下の時のループ
@@ -178,13 +169,12 @@ public class Level {
 				p.setLevel(p.getLevel()+1);
 			}
 		}
-		if(p.getLevel()>=80 && p.EXP>=8950) {
+		if(p.getLevel()>=80 && p.getEXP()>=8950) {
 			level90(p);
 		}
 	}
 	public void level90(Player p) {
-		int comparison =(p.EXP-8950-p.getLevel()*250);
-		int count=0;
+		int comparison =(p.getEXP()-8950-p.getLevel()*250);
 
 
 		//レベル90レベル以下の時のループ
@@ -196,13 +186,12 @@ public class Level {
 				p.setLevel(p.getLevel()+1);
 			}
 		}
-		if(p.getLevel()>=90 && p.EXP>=11450) {
+		if(p.getLevel()>=90 && p.getEXP()>=11450) {
 			level100(p);
 		}
 	}
 	public void level100(Player p) {
-		int comparison =(p.EXP-11450-p.getLevel()*275);
-		int count=0;
+		int comparison =(p.getEXP()-11450-p.getLevel()*275);
 
 
 		//レベル90レベル以下の時のループ

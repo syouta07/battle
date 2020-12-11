@@ -22,42 +22,42 @@ public class StoryTutorial {
 		}
 
 	public static void tutorial(Player x){
-//		Time.TLDA80("これから冒険をはじめます\n\n");
-//		System.out.print(x.getName()+":");
-//		Time.rug15();
-//		Time.TLDA100(" (ここは"+"・・・・"+"どこだ・・・・)");
-//		Time.TLDA100("\t\t(どうやら気を失っていたらしい)\n");
-//		System.out.print("おじいさん:");
-//		Time.TLDA80(" やっと気が付いたかい？"+"\n\t\t\tお前さん冒険者だろ?"+"その服装ですぐわかったよ\n\n");
-//		System.out.print("おじいさん:");
-//		Time.TLDA80(" わしはこの村で村長をしておるコードじゃ\n","\t\t\tお前さんは名は何というのかね？\n");
-//		Time.rug10();
-//		System.out.print(x.getName()+":");
-//		Time.TLDB80(" あれ？");
-//		Time.TLDB80("名前が思い出せない"+"・・・\n\n");
-//		System.out.print("村長:");
-//		Time.TLDB80("無理に答えなくてもいいよ\n\t","お前さん帰る場所あるのかい？");
-//		System.out.print(x.getName()+":");
-//		Time.TLDB300("・・・\n");
-//		System.out.print("村長:");
-//		Time.TLDB80("君がよければ冒険者としてこの村で働かないか？\n\n");
-//		Time.rug10();
-//		System.out.print(x.getName()+":");
-//		Time.TLDA80(" (今の俺にはいく場所がない・・・ここでお世話になろう)","\tおねがいいします！\n");
-//		Time.TLDB80("村長:"+"冒険者になるにはギルドカードが必要になる。"+"\n\tギルドはこの町にあるから行って登録してくるといい。"
-//				,"\n\t登録までに名前を考えておくんだぞ、出身地は私のほうで話をつけておくよ","\n\tギルドまで馬車を使ったほうが早く着くぞ、お金を持っているか？");
-//		System.out.print("\n"+x.getName()+"[1]:はい [2]:いいえ>");
-//		int i = new java.util.Scanner(System.in).nextInt()-1;
-//		if(i==1) {
-//			System.out.print("\n村長:");
-//			Time.TLDA80("少ないがこれだけあれば足りるだろう\n");
-//			System.out.print("名無し:");
-//			Time.TLDA100("村長から1000ゴールドもらった");
-//			x.many=1000;
-//		}else {
-//			System.out.print(x.getName()+":");
-//			Time.TLDA100("これ以上迷惑をかけられないここは歩いて行こう！");
-//		}
+		Time.TLDA80("これから冒険をはじめます\n\n");
+		System.out.print(x.getName()+":");
+		Time.rug15();
+		Time.TLDA100(" (ここは"+"・・・・"+"どこだ・・・・)");
+		Time.TLDA100("\t\t(どうやら気を失っていたらしい)\n");
+		System.out.print("おじいさん:");
+		Time.TLDA80(" やっと気が付いたかい？"+"\n\t\t\tお前さん冒険者だろ?"+"その服装ですぐわかったよ\n\n");
+		System.out.print("おじいさん:");
+		Time.TLDA80(" わしはこの村で村長をしておるコードじゃ\n","\t\t\tお前さんは名は何というのかね？\n");
+		Time.rug10();
+		System.out.print(x.getName()+":");
+		Time.TLDB80(" あれ？");
+		Time.TLDB80("名前が思い出せない"+"・・・\n\n");
+		System.out.print("村長:");
+		Time.TLDB80("無理に答えなくてもいいよ\n\t","お前さん帰る場所あるのかい？");
+		System.out.print(x.getName()+":");
+		Time.TLDB300("・・・\n");
+		System.out.print("村長:");
+		Time.TLDB80("君がよければ冒険者としてこの村で働かないか？\n\n");
+		Time.rug10();
+		System.out.print(x.getName()+":");
+		Time.TLDA80(" (今の俺にはいく場所がない・・・ここでお世話になろう)","\tおねがいいします！\n");
+		Time.TLDB80("村長:"+"冒険者になるにはギルドカードが必要になる。"+"\n\tギルドはこの町にあるから行って登録してくるといい。"
+				,"\n\t登録までに名前を考えておくんだぞ、出身地は私のほうで話をつけておくよ","\n\tギルドまで馬車を使ったほうが早く着くぞ、お金を持っているか？");
+		System.out.print("\n"+x.getName()+"[1]:はい [2]:いいえ>");
+		int i = new java.util.Scanner(System.in).nextInt()-1;
+		if(i==1) {
+			System.out.print("\n村長:");
+			Time.TLDA80("少ないがこれだけあれば足りるだろう\n");
+			System.out.print("名無し:");
+			Time.TLDA100("村長から1000ゴールドもらった");
+			x.many=1000;
+		}else {
+			System.out.print(x.getName()+":");
+			Time.TLDA100("これ以上迷惑をかけられないここは歩いて行こう！");
+		}
 		Time.TLDA100("\tそういえば名前を決めておかなければいけないな！");
 		Time.TLDA100("\tギルドに行く前に名前を決めましょう");
 		StoryTutorial.name(x);
