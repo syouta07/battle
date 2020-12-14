@@ -10,6 +10,7 @@ public abstract class  Player {
 	int hp;
 	private int hpMax;
 	int level;
+	private int damage;
 
 	public abstract Monster damage(Monster m);
 
@@ -46,4 +47,11 @@ public abstract class  Player {
 	//**EXP**//
 	public abstract int getEXP();
 	public abstract void setEXP(int EXP);
+
+	//**死亡時**//
+	public abstract void die(Player p);
+
+	//**剣を装備させたときの攻撃力**//
+	public abstract int getDamage();
+	public abstract void setDamage(int damage);
 }

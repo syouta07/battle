@@ -29,10 +29,10 @@ public class Town {
 		int a = new java.util.Scanner(System.in).nextInt();
 		switch(a) {
 			case 0:
-				weapons();
+				WeaponShop.weapons();
 				break;
 			case 1:
-				armor();
+				ArmorShop.armor();
 				break;
 			case 2:
 				goods();
@@ -65,53 +65,9 @@ public class Town {
 			choose();
 		}
 	}
-
-					//武器屋さん
-
-	public static void weapons(){
-		System.out.println("いらっしゃい！");
-		System.out.println("今日はどんな防具をお求めで？");
-		System.out.println("1:片手剣 2:双剣 3:槍 4:やめる");
-		int a = new java.util.Scanner(System.in).nextInt()-1;
-		if(a==0) {
-			Time.TLDB80("片手剣はこんなのがあるぞ"+"また来てくれよな\n");
-			weapons();
-		}else if(a==1) {
-			Time.TLDB80("双剣はこんなのがあるぞ"+"また来てくれよな\n");
-			weapons();
-		}else if(a==2) {
-			Time.TLDB80("槍はこんなのがあるぞ"+"また来てくれよな\n");
-			weapons();
-		}else if(a==3) {
-			Time.TLDB80("そっか……"+"ありがとうまた来てくれよな\n");
-			choose();
-		}
-	}
 					//防具屋さん
 
-	public static void armor(){
-		System.out.println("1:頭の防具 2:腕の防具 3:銅の防具 4:脚の防具 5:やっぱり何でもない");
-		int a = new java.util.Scanner(System.in).nextInt()-1;
-		if(a==0) {
-			System.out.println("頭の防具はこんなのがあるぞ");
-			System.out.println("また来てくれよな");
-		choose();
-		}else if(a==1) {
-			Time.TLDB80("頭の防具はこんなのがあるぞ"+"ありがとうまた来てくれよな\n");
-			armor();
-		}else if(a==2) {
-			Time.TLDB80("腕の防具はこんなのがあるぞ"+"ありがとうまた来てくれよな\n");
-			armor();
-		}else if(a==3) {
-			Time.TLDB80("銅の防具はこんなのがあるぞ"+"ありがとうまた来てくれよな\n");
-			armor();
-		}else if(a==4) {
-			Time.TLDB80("脚の防具はこんなのがあるぞ"+"ありがとうまた来てくれよな\n");
-		}else {
-			Time.TLDB80("ありがとう"+"また来てくれ");
-			choose();
-		}
-	}
+
 					//雑貨屋さん
 
 	public static void goods(){

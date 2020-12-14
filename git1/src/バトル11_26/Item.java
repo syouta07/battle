@@ -7,14 +7,14 @@ public class Item {
 	boolean i;
 
 		/*	薬草  */
-	public void Herbs(Player a) {
+	public void Herbs(Player p) {
 		int heelPoint=15;
-		if(a.getHp()+heelPoint<=a.MaxHp) {
-			a.setHp(a.getHp() + heelPoint);
-			Time.TLDA80(a.getName() +"は薬草を使った。HPは"+a.getHp()+"まで回復した。");
-		}else if(a.MaxHp-15<a.getHp()) {
-			a.setHp(a.MaxHp);
-			Time.TLDA80(a.getName()+"は薬草を使った");
+		if(p.getHp()+heelPoint<=p.getMaxHp()) {
+			p.setHp(p.getHp() + heelPoint);
+			Time.TLDA80(p.getName() +"は薬草を使った。HPは"+p.getHp()+"まで回復した。");
+		}else if(p.getMaxHp()-15<p.getHp()) {
+			p.setHp(p.getMaxHp());
+			Time.TLDA80(p.getName()+"は薬草を使った");
 		}
 	}
 

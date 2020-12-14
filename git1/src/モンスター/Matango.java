@@ -1,6 +1,5 @@
 package モンスター;
 
-import 主人公.Hero;
 import 主人公.Player;
 import 機能.Time;
 
@@ -11,7 +10,7 @@ public class Matango extends Monster {
 	int hp = 30; int MaxHp = 30;
 	int mp = 10; int MaxMp = 10;
 
-	public Hero action(Hero h){
+	public Player action(Player p){
 		String [] action = {"様子をうかがっている","急に襲ってきた","眠っている"};
 		int mata= new java.util.Random().nextInt(4);
 		String comment= "キノコが現れたキノコ"+action[mata];
@@ -22,30 +21,29 @@ public class Matango extends Monster {
 			break;
 		case 1:
 			Time.TLDA50(comment+"が"+action[1]+"\n\n");
-			attack1(h);
+			attack(p);
 			break;
 		case 2:
 			Time.TLDA50(comment+"が"+action[2]+"\n\n");
 			break;
 		}
-		return h;
+		return p;
 	}
 
 
-	public Player attack1(Player h){
+	public void attack(Player p){
 		int at=new java.util.Random().nextInt(9)+2;
-		h.hp = h.name - at;
-		Time.TLDA50(this.name+"は"+h.name+"に"+at+"ダメージ与えた");
-		if(h.getHp()>0) {
-			attack1(h);
+		p.setHp(p.getHp() - at);
+		Time.TLDA50(this.name+"は"+p.getName()+"に"+at+"ダメージ与えた");
+		if(p.getHp()>0) {
+			attack(p);
 		}else {
-			Player.die(h);
+			p.die(p);
 		}
-		return h;
 	}
 
 
-	public Matango heel(Matango a) {
+	public Monster heel(Monster a) {
 		Time.TLDA50(this.name+"はヒールを使った。\n\n");
 		if(this.hp==this.MaxHp || this.mp<0) {
 			Time.TLDA50("何も起こらなかった。\n\n");
@@ -69,24 +67,18 @@ public class Matango extends Monster {
 		Time.TLDA50(this.name+"は力尽きた");
 	}
 
-	public void select(Monster m) {
+	public void select(Player p) {
 		int s = new java.util.Random().nextInt(4);
-		if(m.hp>(m.hp/2)) {
+		if(this.hp>(this.MaxHp/2)) {
 			if(s==0 || s==1) {
-//				attack1();
+				attack(p);
+			}else {
+				poison(p);
 			}
 		}
 	}
 
-
 	private void run() {
 		Time.TLDA50(this.name+"は逃げ出した。");
-	}
-
-
-	@Override
-	public void attack(Player p) {
-		// TODO 自動生成されたメソッド・スタブ
-
 	}
 }

@@ -7,10 +7,9 @@ public class Hero extends Player{
 	private int hp;    private int mp;
 	private int maxHp; private int maxMp;
 	private int level; private int hpMax;
-	private int EXP;
+	private int EXP;	int damage;
 	int maxLevel = 99;
 	private String name;
-
 
 
 	public Hero(String name) {
@@ -18,6 +17,7 @@ public class Hero extends Player{
 		this.hp=100;
 		this.mp=10;
 		this.setLevel(1);
+		many=1000;
 	}
 
 	public String getName() {
@@ -51,8 +51,12 @@ public class Hero extends Player{
 	public void setLevel(int level) {
 		this.level = level;
 	}
-
-
+	public int getDamage() {
+		return this.damage;
+	}
+	public void setDamage(int damage) {
+		this.damage = damage;
+	}
 	//**////**////**////**////**////**////**////**////**//
 	//**//    	    								//**//
 	//**//			  名前を決めるメゾット		    //**//
@@ -127,7 +131,8 @@ public class Hero extends Player{
 	public void die(Player p) {
 		Time.TLDA50(this.name+"のHPがなくなった");
 		Time.TLDA100("・・・・・\n\n");
-		Time.TLDA50("ゲームオーバー");
+		Time.TLDA50("持ち金のお金が半分でリスタートします・・・");
+		many = many/2;
 	}
 
 	//**////**////**////**////**////**////**////**////**//
@@ -147,6 +152,8 @@ public class Hero extends Player{
 		}
 		return p;
 	}
+
+
 
 
 

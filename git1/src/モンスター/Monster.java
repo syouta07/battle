@@ -7,4 +7,5 @@ public abstract class Monster {
 	public int hp; int MaxHp;
 	int mp; int MaxMp;
 	public abstract void attack(Player p);
+	public abstract Monster heel (Monster m);
 }

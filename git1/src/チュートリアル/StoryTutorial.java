@@ -71,19 +71,20 @@ public class StoryTutorial {
 		Time.rug10();
 		Time.TLDB80("ギルドの受付:");
 		Time.TLDB80("君が村長さんに助けられた子かい？");
-		System.out.println("1:はい 2:いいえ");
+		System.out.println("\n1:はい 2:いいえ");
 		int ans1=new java.util.Scanner(System.in).nextInt();
-		if(ans1==1) {
+		if(!(ans1==1)) {
 			System.out.print("ギルドの受付:");
 			Time.TLDB80("つまらないウソをつくもんじゃないよ");
 		}else {
-			Time.TLDA300("・・・・・・・\n");
-			Time.TLDB80("話は聞いているよ登録するからちょっと待ってな");
-			Time.TLDA300("\t\tここに名前を書きな\n");
+
 		}
+		Time.TLDA300("・・・・・・・\n");
+		Time.TLDB80("話は聞いているよ登録するからちょっと待ってな");
+		Time.TLDA300("\t\tここに名前を書きな");
 		boolean ans = false;
 		while(!ans) {
-			System.out.print("==>");
+			System.out.print("\n\n==>");
 			String name = new java.util.Scanner(System.in).nextLine();
 			if(!(name.equals(x.getName()))) {
 				System.out.print("ギルド受付:");
@@ -98,7 +99,7 @@ public class StoryTutorial {
 		Time.TLDA80("\nギルドの受付:強いモンスターを倒して早くAランクを目指しな‼");
 		Time.TLDA80("\t\t¥t"+"さっそくクエストをうけるかい？\n");
 		Time.TLDA80(x.getName()+":(・・・今日は町に行きたいからクエストはやめておこう・・・）\n");
-		System.out.println("\n\n1:いいえ");
+		System.out.println("\n\n==>1:いいえ");
 		int c = new java.util.Scanner(System.in).nextInt()-1;
 		System.out.print("\nギルドの受付:");
 		Time.TLDA80("そうかまだ来たばかりだゆっくり町でも見るといい\n");
@@ -122,27 +123,28 @@ public class StoryTutorial {
 	public static void tutorialTown(Player p){
 		System.out.println(p.getName()+": ");
 		Time.TLDB80("どこに行こうかな\n");
-		System.out.println("[1]:武器屋 [2]:防具屋 [3]:商店 [4]:帰る\n");
+		System.out.println("[1]:武器屋 [2]:防具屋 [3]:商店 [4]:家に行く");
 		int a  =new java.util.Scanner(System.in).nextInt()-1;
 		if(a==0) {
-			Time.TLDB80("\n武器屋に行こう\n");
+			Time.TLDB80("\n武器屋に行こう!\n\n");
 			tutorialWeapon(p);
 		}else if(a==1) {
-			Time.TLDB80("\n防具屋に行こう\n");
+			Time.TLDB80("\n防具屋に行こう!\n\n");
 			tutorialArmor(p);
 		}else if(a==2) {
-			Time.TLDB80("\n商店に行こう\n");
+			Time.TLDB80("\n商店に行こう!\n\n");
 			tutorialGoods(p);
 		}else if(a==3) {
-			Time.TLDB80("\n家に帰るとするか\n");
+			Time.TLDB80("\n家に帰るとするか!\n\n");
 				Home.Action(p);
 		}else {
 			tutorialTown(p);
 		}
 	}
 	public static void tutorialWeapon(Player p){
-		Time.TLDB80("店主:"+"何をお求めで？\n");
-		System.out.println("1:片手剣 2:双剣 3:槍 4:やっぱりやめておくよ");
+		Time.rug15();
+		Time.TLDB80("店主:"+"何をお求めで？\n\n");
+		Time.TLDB50("1:片手剣 2:双剣 3:槍 4:やっぱりやめておくよ");
 		int b = new java.util.Scanner(System.in).nextInt()-1;
 		if(b==0) {
 			Time.TLDB80("片手剣はこんなのがあるぞ"+"また来てくれよな\n");
@@ -158,8 +160,9 @@ public class StoryTutorial {
 		}
 	}
 	public static void tutorialArmor(Player p) {
-		Time.TLDB80("どんな防具をお求めで？\n\n");
-		System.out.println("1:頭 2:胴体 3:腕 4:脚 5:やめる");
+		Time.rug15();
+		Time.TLDB80("いらっしゃい！"+p.getName()+"どんな防具が欲しいんだい？\n\n");
+		Time.TLDB50("1:頭 2:胴体 3:腕 4:脚 5:やめる");
 		int b = new java.util.Scanner(System.in).nextInt()-1;
 		if(b==0) {
 			Time.TLDB80("頭の防具はこんなのがあるぞ","ありがとうまた来てくれよな\n");
@@ -178,7 +181,8 @@ public class StoryTutorial {
 		}
 	}
 	public static void tutorialGoods(Player p) {
-		Time.TLDB80("何をお求めで？\n");
+		Time.rug15();
+		Time.TLDB80("いらっしゃい！\n\n");
 		System.out.println("1:薬草 2:生肉 3:包帯 4:やめる");
 		int b = new java.util.Scanner(System.in).nextInt()-1;
 		if(b==0) {
