@@ -12,11 +12,11 @@ public class Town {
 			 buy();
 		}
 		 if(a==1){
-			System.out.println("今日はにぎわっている");
+			 Time.TLDB80("今日はにぎわっていな‼‼‼‼");
 			choose();
 		}
 		 if(a==2){
-			System.out.println("雨が降っている………");
+			 Time.TLDB80("雨が降っている………");
 			choose();
 		}
 	}
@@ -35,7 +35,7 @@ public class Town {
 				ArmorShop.armor();
 				break;
 			case 2:
-				goods();
+				Goods.goods();
 				break;
 			case 3:
 				AllAction.moveToAnother();
@@ -62,29 +62,6 @@ public class Town {
 		}else {
 			System.out.println("そうか残念だ…また今度よろしくな！");
 			System.out.println("");
-			choose();
-		}
-	}
-					//防具屋さん
-
-
-					//雑貨屋さん
-
-	public static void goods(){
-		Time.TLDB80("何をお求めで？\n\n");
-		System.out.println("1:薬草 2:生肉 3:包帯 4:やめる");
-		int b = new java.util.Scanner(System.in).nextInt()-1;
-		if(b==0) {
-			System.out.println("");
-			Time.TLDB80("薬草が今日は安いからな持ってけ"+"ほかにも何かあるかい？");
-			goods();
-		}else if(b==1) {
-			Time.TLDB80("生肉は保存に気をつけな！"+"ありがとうまた来てくれよな\n\n");
-			goods();
-		}else if(b==2) {
-			Time.TLDB80("冒険者は包帯が必需品だな"+"ありがとうまた来てくれよな\n\n");
-			goods();
-		}else {
 			choose();
 		}
 	}
