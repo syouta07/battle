@@ -11,8 +11,9 @@ public abstract class  Player {
 	private int hpMax;
 	int level;
 	private int damage;
+	private int bankPass;
 
-	public abstract Monster damage(Monster m);
+	public abstract void damage(Monster m);
 
 	public abstract Player heel(Player p);
 
@@ -23,22 +24,14 @@ public abstract class  Player {
 	//**HP**//
 	public abstract int getHp();
 	public abstract void setHp(int hp);
-
-	//**MaxHP**//
 	public abstract int getMaxHp();
 	public abstract void setMaxHp(int maxHp);
 
 	//**MP**//
 	public abstract int getMp();
 	public abstract void setMp(int mp);
-
-	//**MaxMP**//
 	public abstract int getMaxMp();
 	public abstract void setMaxMp(int maxMp) ;
-
-	//**HpMax**//
-	public abstract int getHpMax();
-	public abstract void setHpMax(int hpMax);
 
 	//**LeveL**//
 	public abstract int getLevel();
@@ -49,9 +42,14 @@ public abstract class  Player {
 	public abstract void setEXP(int EXP);
 
 	//**死亡時**//
-	public abstract void die(Player p);
+	public abstract void die(Player p,String place);
 
 	//**剣を装備させたときの攻撃力**//
 	public abstract int getDamage();
 	public abstract void setDamage(int damage);
+
+	//**銀行の暗証番号**//
+	public abstract int getBankPass();
+	public abstract void setBankPass(int bankPass);
+
 }

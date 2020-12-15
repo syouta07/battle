@@ -31,12 +31,12 @@ public class Matango extends Monster {
 	}
 
 
-	public void attack(Player p){
+	public void attack(Player p,String place){
 		int at=new java.util.Random().nextInt(9)+2;
 		p.setHp(p.getHp() - at);
 		Time.TLDA50(this.name+"は"+p.getName()+"に"+at+"ダメージ与えた");
 		if(p.getHp()>0) {
-			attack(p);
+			attack(p,place);
 		}else {
 			p.die(p);
 		}

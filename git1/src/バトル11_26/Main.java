@@ -1,19 +1,16 @@
 package バトル11_26;
 
-import チュートリアル.StoryTutorial;
-import モンスター.Matango;
 import 主人公.Hero;
 import 主人公.Player;
+import 町内_店_ギルド_家_協会_銀行.Bank;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Player h = new Hero("ななし");
-		StoryTutorial.tutorial(h);
-		h.setEXP(1000);
-		System.out.println(h.getLevel());
-		Matango a = new Matango();
-		h.damage(a);
+		Player p = new Hero("ななし");
+//		StoryTutorial.tutorial(h);
+
+		Bank.fast(p);
 	}
 }

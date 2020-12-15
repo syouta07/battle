@@ -1,41 +1,40 @@
-package 町内_店_ギルド_家_協会;
+package 町内_店_ギルド_家_協会_銀行;
 
+import 主人公.Player;
 import 機能.Time;
 
 public class Town {
 
 					//町にに来た時のイベント
 
-	public static void lottery(){
-		int a = new java.util.Random().nextInt(3);
-		 if(a==0){
-			 buy();
-		}
-		 if(a==1){
-			 Time.TLDB80("今日はにぎわっていな‼‼‼‼");
-			choose();
-		}
-		 if(a==2){
+	public static void lottery(Player p){
+		int LuckyNumber = new java.util.Random().nextInt(5);
+		 if(LuckyNumber==0){
+			 buy(p,LuckyNumber);
+		}else if(LuckyNumber==1 || LuckyNumber==2 || LuckyNumber==3){
+			 Time.TLDB80(p.getName()+": 今日はにぎわっているな‼‼‼‼");
+			choose(p,LuckyNumber);
+		}else if(LuckyNumber==4){
 			 Time.TLDB80("雨が降っている………");
-			choose();
+			choose(p,LuckyNumber);
 		}
 	}
 
 				//買い物でどこに行くかの選択
 
-	public static void choose(){
+	public static void choose(Player p, int LuckyNumber){
 		System.out.println("どこに行きますか？");
 		System.out.println("1:武器屋 2:防具屋 3:雑貨屋 4:戻る");
 		int a = new java.util.Scanner(System.in).nextInt();
 		switch(a) {
 			case 0:
-				WeaponShop.weapons();
+				WeaponShop.weapons(p,LuckyNumber);
 				break;
 			case 1:
-				ArmorShop.armor();
+				ArmorShop.armor(p,LuckyNumber);
 				break;
 			case 2:
-				Goods.goods();
+				Goods.goods(p,LuckyNumber);
 				break;
 			case 3:
 				AllAction.moveToAnother();
@@ -46,7 +45,7 @@ public class Town {
 
 					//イベントの押し売り業者
 
-	public static void buy(){
+	public static void buy(Player p,int LuckyNumber){
 		String [] item = {"薬草","回復薬","パン","剣","靴"};
 		System.out.println("お～いあんちゃん何か買っていかねえか？");
 		System.out.println("1:何があるんだい？ 2:買わない");
@@ -62,7 +61,7 @@ public class Town {
 		}else {
 			System.out.println("そうか残念だ…また今度よろしくな！");
 			System.out.println("");
-			choose();
+			choose(p,LuckyNumber);
 		}
 	}
 }

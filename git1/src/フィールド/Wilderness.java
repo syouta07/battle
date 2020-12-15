@@ -1,7 +1,7 @@
 package フィールド;
 
-import 町内_店_ギルド_家_協会.AllAction;
-import 町内_店_ギルド_家_協会.Guild;
+import 町内_店_ギルド_家_協会_銀行.AllAction;
+import 町内_店_ギルド_家_協会_銀行.Guild;
 
 public class Wilderness {		/*ギルド以外から来た時の
 											帰り方の設定がまだ*/

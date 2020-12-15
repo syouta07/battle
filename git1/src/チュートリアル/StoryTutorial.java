@@ -2,7 +2,7 @@ package チュートリアル;
 
 import 主人公.Player;
 import 機能.Time;
-import 町内_店_ギルド_家_協会.Home;
+import 町内_店_ギルド_家_協会_銀行.Home;
 
 public class StoryTutorial {
 
@@ -102,10 +102,12 @@ public class StoryTutorial {
 		System.out.println("\n\n==>1:いいえ");
 		int c = new java.util.Scanner(System.in).nextInt()-1;
 		System.out.print("\nギルドの受付:");
-		Time.TLDA80("そうかまだ来たばかりだゆっくり町でも見るといい\n");
-		System.out.println("ギルドを出ました。");
-		Time.TLDA80("せっかくだから町に行ってみよう");
-		tutorial2(x);
+		Time.TLDA80("そうかまあゆっくりやっていきな！","まだ銀行口座を開いていないだろ今日行ってきたらどうだい？\n\n");
+		Time.TLDA80(x.getName()+"ありがとう！今から行ってみるよ！");
+		Time.TLDA80(x.getName()+":ギルドを出た。\n\n");
+		Time.TLDA100("・・・・・・");
+		Time.TLDA80("銀行についた！");
+		
 	}
 
 	public static void tutorial2(Player x){

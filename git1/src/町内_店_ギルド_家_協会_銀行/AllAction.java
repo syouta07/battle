@@ -1,4 +1,4 @@
-package 町内_店_ギルド_家_協会;
+package 町内_店_ギルド_家_協会_銀行;
 
 import フィールド.Cave;
 import フィールド.Wilderness;

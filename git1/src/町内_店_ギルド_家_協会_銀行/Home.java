@@ -1,4 +1,4 @@
-package 町内_店_ギルド_家_協会;
+package 町内_店_ギルド_家_協会_銀行;
 
 import 主人公.Player;
 import 機能.Time;
@@ -22,7 +22,7 @@ public class Home {								/*ヒーローのHPまだ決まってないから
 			}
 			Action(p);
 		}else if(a==1) {
-			p.setHp(p.getHp() + p.getHpMax());
+			p.setHp(p.getHp() + p.getMaxHp());
 			Time.TLDB300("・・・・・・");
 			Time.TLDB300("体力がhp回復した\n\n");
 			Action(p);
@@ -34,17 +34,23 @@ public class Home {								/*ヒーローのHPまだ決まってないから
 		}else {
 			Time.TLDB80("暇だからどこか出かけようかな\n\n");
 			try {
-				Town.lottery();
+				Town.lottery(p);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
 	}
-
-
 	public void homeSleep(Player p) {
 		int hp= p.getHp();
 		hp = p.getMaxHp();
+	}
+	public static void die(Player p,String place) {
+		int count=0;
+		Time.TLDB80(p.getName()+":"+place+"で瀕死状態になったところを助けてもらえたようだ・・・\n","\t\t手持ちのお金が半分になった");
+		Time.TLDB80(p.many+"==>");
+		p.many=p.many/2;
+		Time.TLDB80(""+p.many);
+
 	}
 }
