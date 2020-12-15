@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		Player p = new Hero("ななし");
-//		StoryTutorial.tutorial(h);
+//		StoryTutorial.tutorial(p);
 
 		Bank.fast(p);
 	}
