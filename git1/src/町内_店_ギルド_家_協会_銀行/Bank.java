@@ -158,11 +158,13 @@ String name;
 	
 	private static void payment(Player p) {
 		Time.TLDB80("銀行員:");
-		Time.TLDB80("かしこまりました入金ですね。いくら入金されますか？\n");
-		Time.TLDB80("入金する額を入力してください","==>");
+		Time.TLDB80("かしこまりました入金ですね。","いくら入金されますか？\n\n");
+		Time.TLDB80("入金する額を入力してください");
+		System.out.println("==>");
 		int a = new java.util.Scanner(System.in).nextInt();
-		Time.TLDB80(a+"の入金でお間違いないですか？");
-		Time.TLDB80("[1]:はい [2]:いいえ"+"==>");
+		Time.TLDB80(a+"の入金でお間違いないですか？\n\n");
+		Time.TLDB80(p.getName()+": [1]:はい [2]:いいえ");
+		System.out.print(p.getName()+"==>");
 		int no = new java.util.Scanner(System.in).nextInt();
 		if(no==1) {
 			if(a>p.many) {
@@ -171,32 +173,33 @@ String name;
 			}else {
 				Bank.bankMany+=a;
 				p.many-=a;
-				Time.TLDB80("貯金残高:"+Bank.bankMany+" 所持金:"+p.many);
+				Time.TLDB80("銀行員:"+a+"お預かりいたします\n\n");
+				Time.TLDB80("\n貯金残高:"+Bank.bankMany+" 所持金:"+p.many);
 			}
 		}
 
-		bankAction2(p);
+		bankAction2(p);//銀行のアクション選択
 	}
 
 	//**出金**//
 	private static void withdrawal(Player p) {
-		Time.TLDB80("銀行員:いくら出金しますか？\n\n==>");
+		Time.TLDB80("銀行員: いくら出金しますか？\n\n==>");
 		int a = new java.util.Scanner(System.in).nextInt();
 		if(Bank.bankMany>=a) {
-			Time.TLDB80(a+"引き出しました。\n"+p.getName()+":貯金残高");
+			Time.TLDB80(p.getName()+": "+a+"引き出しました。\n"+"\t\t貯金残高");
+		}else {
+			Time.TLDB80("銀行員: "+p.getName()+"さんの残高が足りず引き出せません・・・");
 		}
-		System.out.println("\\#a"+"円引き出しました");
-		bankAction2(p);
+//		bankAction2(p);//銀行のアクション選択
 	}
 
-					//貯金確認
+	//**貯金確認**//
 	private static void balance(Player p) {
-		System.out.print("貯金残高は");
-		int a = new java.util.Scanner(System.in).nextInt();
-		System.out.println("かしこまりました。"+"\\"+"円の入金ですね");
-		bankAction2(p);
+		Time.TLDB80("銀行員: "+p.getName()+"さんの貯金残高は"+Bank.bankMany+"です");
+		bankAction2(p);//銀行のアクション選択
 	}
-					//村に帰る
+
+	//**村に帰る**//
 	private static void back(Player p){
 		System.out.println("銀行から出ますか？ 1:はい 2;いいえ");
 		int a = new java.util.Scanner(System.in).nextInt()-1;
