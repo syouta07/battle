@@ -10,7 +10,7 @@ public class Main {
 
 		Player p = new Hero("ななし");
 //		StoryTutorial.tutorial(p);
-
+		Bank.bankAction(p);
 		Bank.fast(p);
 	}
 }

@@ -65,8 +65,8 @@ String name;
 		 if(no1==0) {
 			 p.setBankPass(no1);
 			 Bank.pass=no1;
-			 Time.TLDB80("銀行員:","登録完了しました。これからよろしくお願いします！",
-					 "またのお越しを‼");
+			 Time.TLDB80("銀行員:","登録完了しました。暗証番号は"+Bank.pass+"なので忘れないでくださいね！\n\t\tこれからよろしくお願いします！",
+					 "またのお越しをお待ちしております‼");
 		 }else {
 			 pass();
 		 }
@@ -100,8 +100,62 @@ String name;
 		StoryTutorial.tutorial2(p);
 	}
 
+	//****////****////****////****////****////****////****////****//
+	//****//												//****//
+	//****//					 入金					    //****//
+	//****//												//****//
+	//****////****////****////****////****////****////****////****//
+	
+	//**最初の挨拶と選択**//
+	public static void bankAction(Player p){
+		System.out.println("本日のご用件は何でしょう");
+		System.out.println("1:入金 2:出金 3:貯金を確認する 4:町へ");
+		int a = new java.util.Scanner(System.in).nextInt()-1;
 
-	//**入金**//
+		switch(a) {
+			case 0:
+				payment(p);//入金
+				break;
+			case 1:
+				withdrawal(p);//出金
+				break;
+			case 2:
+				balance(p);//残高
+				break;
+//			case 3:
+//				back(p);
+//				break;
+		}
+	}	
+
+	public static void bankAction2(Player p){
+		System.out.println("ほかにご用件はありますか？");
+		System.out.println("1:入金 2:出金 3:貯金を確認する 4:やめる");
+		int a = new java.util.Scanner(System.in).nextInt()-1;
+
+		switch(a) {
+			case 0:
+				payment(p);
+				break;
+			case 1:
+				withdrawal(p);
+				break;
+			case 2:
+				balance(p);
+				break;
+			case 3:
+			back(p);
+				break;
+		}
+	}
+	
+	
+	//****////****////****////****////****////****////****////****//
+	//****//												//****//
+	//****//					 入金					    //****//
+	//****//												//****//
+	//****////****////****////****////****////****////****////****//
+	
 	private static void payment(Player p) {
 		Time.TLDB80("銀行員:");
 		Time.TLDB80("かしこまりました入金ですね。いくら入金されますか？\n");
@@ -155,47 +209,6 @@ String name;
 			}
 		}else {
 			bankAction2(p);
-		}
-	}
-	public static void bankAction(Player p){
-		System.out.println("本日のご用件は何でしょう");
-		System.out.println("1:入金 2:出金 3:貯金を確認する 4:町へ");
-		int a = new java.util.Scanner(System.in).nextInt()-1;
-
-						//一回目の作業
-		switch(a) {
-			case 0:
-				payment(p);
-				break;
-			case 1:
-				withdrawal(p);
-				break;
-			case 2:
-				balance(p);
-				break;
-			case 3:
-				back(p);
-				break;
-		}				//二回目以降の作業
-	}
-	public static void bankAction2(Player p){
-		System.out.println("ほかにご用件はありますか？");
-		System.out.println("1:入金 2:出金 3:貯金を確認する 4:やめる");
-		int a = new java.util.Scanner(System.in).nextInt()-1;
-
-		switch(a) {
-			case 0:
-				payment(p);
-				break;
-			case 1:
-				withdrawal(p);
-				break;
-			case 2:
-				balance(p);
-				break;
-			case 3:
-			back(p);
-				break;
 		}
 	}
 
