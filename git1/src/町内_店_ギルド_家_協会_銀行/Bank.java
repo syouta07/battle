@@ -3,7 +3,6 @@ package 町内_店_ギルド_家_協会_銀行;
 import チュートリアル.StoryTutorial;
 import 主人公.Player;
 import 機能.Time;
-//syouta07 <a14ba018@gmail.com>
 
 public class Bank{
 private static int bankMany=0;
@@ -207,7 +206,7 @@ String name;
 		if (a==0) {
 			System.out.println("ありがとうございました");
 			try {
-				AllAction.moveToAnother();
+				AllAction.moveToAnother(p);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

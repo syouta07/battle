@@ -27,10 +27,10 @@ public class battleChoice {
 		}
 	}
 
-	static void monsterChoice(Player p,Monster m) {
+	static void monsterChoice(Player p,Monster m,String place) {
 		if(m.hp>=m.hp/2) {
 			if((int)Math.random()*3/4==0){
-				m.attack(p);
+				m.attack(p,place);
 			}else if((int)Math.random()*2==0) {
 
 			}

@@ -1,5 +1,7 @@
 package 町内_店_ギルド_家_協会_銀行;
 
+import 主人公.Player;
+
 public class Association {			//*村に戻るが完成していない*//
 
 
@@ -9,7 +11,7 @@ public class Association {			//*村に戻るが完成していない*//
 		String [] Repentance = {"死ぬのが怖い","冒険に飽きた","何をしに来たか忘れた"};
 
 
-	public static void association() {
+	public static void association(Player p) {
 		System.out.println("神父が現れた。");
 		System.out.println("今日は何をされに来ましたか？");
 		System.out.println("1:祈り 2:セーブ 3:懺悔 4:何でもない");
@@ -17,7 +19,7 @@ public class Association {			//*村に戻るが完成していない*//
 
 		if(select==0) {
 			System.out.println("祈った清らかな気持ちになった。");
-			goHome();
+			goHome(p);
 		}else if(select==1) {
 			System.out.println("セーブしました");
 		}else if(select==2) {
@@ -27,32 +29,32 @@ public class Association {			//*村に戻るが完成していない*//
 			if(zange == 0) {
 				System.out.println("恥じることはありません。死ぬのは怖いものです。");
 				System.out.println("ほかに要件はありますか？");
-				association();
+				association(p);
 			}else if(zange==1) {
 				System.out.println("セーブしました");
-				goHome();
+				goHome(p);
 				System.out.println();
 			}else {
 				System.out.println("村に帰りますか？");
 				System.out.println("1:はい 2:いいえ");
 				int a = new java.util.Scanner(System.in).nextInt();
 				if(a==0) {
-					association();
+					association(p);
 				}
 			}
 			}
 
 		System.out.println("村に帰ります");
 		System.out.println();
-		AllAction.moveToAnother();
+		AllAction.moveToAnother(p);
 		}
-	public static void goHome(){
+	public static void goHome(Player p){
 		String goHome="村に帰りますか？";
 		System.out.println(goHome+"1:はい 2:いいえ");
 		int no = new java.util.Scanner(System.in).nextInt()-1;
 		if(no==0) {
 			System.out.println("村へ帰ります");
-			Town.lottery();
+			Town.lottery(p);
 	}
 	}
 }

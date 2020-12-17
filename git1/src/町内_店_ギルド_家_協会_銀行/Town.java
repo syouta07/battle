@@ -37,7 +37,7 @@ public class Town {
 				Goods.goods(p,LuckyNumber);
 				break;
 			case 3:
-				AllAction.moveToAnother();
+				AllAction.moveToAnother(p);
 				break;
 		}
 	}

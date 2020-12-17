@@ -1,8 +1,16 @@
 package 主人公;
 
+import モンスター.Monster;
+
 public class Level {
 
-	public void levelCheck(Player p) {
+	//**モンスターを倒した時に得られるEXP**//
+	public static void MonsterDie(Player p,Monster m) {
+		p.setEXP(p.getEXP()+m.getEXP());
+	}
+
+
+	public  void levelCheck(Player p) {
 		if(p.getLevel()<=10){
 			level10(p);
 
