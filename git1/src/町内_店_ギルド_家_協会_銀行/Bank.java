@@ -4,7 +4,7 @@ import チュートリアル.StoryTutorial;
 import 主人公.Player;
 import 機能.Time;
 //syouta07 <a14ba018@gmail.com>
-//hand- <hand-@LAPTOP-D8PLKQ2R>
+
 public class Bank{
 private static int bankMany=0;
 private static int pass;
