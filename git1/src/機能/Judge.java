@@ -18,7 +18,7 @@ public class Judge {
 	//**主人公の名前を決める**//
 	public static void name(Player x) {
 		
-		Time.TLDA100("名前を何にしますか？\n");
+//		Time.TLDA100("名前を何にしますか？\n");
 //		Time.TLDA50("※一文字目は数字や記号以外で入力してください\n");
 		String h = Judge.nameJudge();
 		Time.TLDA50(h+"でよろしいですか？\n\n");
