@@ -41,12 +41,6 @@ public class Time{
 		int arr_num = data.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 
-			try{
-				Thread.sleep(50);
-			}
-			catch(InterruptedException e){
-			}System.out.print(data[i]);
-		}
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -54,7 +48,7 @@ public class Time{
 		}
 		System.out.println("");
 	}
-
+}
 
 	public static void TLDA80(String x) {
 		char data[] = x.toCharArray();
