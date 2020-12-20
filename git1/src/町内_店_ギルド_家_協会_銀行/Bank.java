@@ -1,7 +1,7 @@
 package 町内_店_ギルド_家_協会_銀行;
 
-import チュートリアル.StoryTutorial;
 import 主人公.Player;
+import 機能.Num;
 import 機能.Time;
 
 public class Bank{
@@ -17,14 +17,14 @@ String name;
 
 	//**説明後に口座開設に誘導する**//
 	private static void fastC(Player p) {
-		Time.TLDB80("銀行員:説明は以上になります。口座開設の準備いたしますね？\n\n"+"==>[1]:はい");
-		int no =new java.util.Scanner(System.in).nextInt();
+		Time.TLDB80("銀行員:説明は以上になります。口座開設の準備いたします!");
 		Open(p);
 	}
 
 	//**入力が誤っていた際のパスワード再設定**//
 	private static String pass() {
 		Time.TLDB80("銀行員:4桁のパスワードを入力しなおしてください\n==>");
+		@SuppressWarnings("resource")
 		String no =new java.util.Scanner(System.in).nextLine();
 		return passCheck(no);
 	}
@@ -32,7 +32,6 @@ String name;
 	//**入力された文字が数列か判定する**//
 	private static String passCheck(String noS) {
 		boolean judge=true;
-		int no=0;
 		if(noS.length()==4){
 			for(int i = 0; i < noS.length(); i++) {
 				 if(Character.isDigit(noS.charAt(i))){
@@ -57,11 +56,13 @@ String name;
 	private static void Open(Player p) {
 
 		Time.TLDB80("銀行員:では"+p.getName()+"の口座を開設しますので\n\t\t4桁のパスワードを入力してください\n==>");
+		@SuppressWarnings("resource")
 		String no =new java.util.Scanner(System.in).nextLine();
 		 no = passCheck(no);
 		 Time.TLDB80("銀行員:",no+"でよろしいでしょうか？\n\n");
 		 Time.TLDB80(p.getName(),": [1]:はい [2]:いいえ==>");
-		 int no1 =new java.util.Scanner(System.in).nextInt()-1;
+		 @SuppressWarnings("resource")
+		int no1 =new java.util.Scanner(System.in).nextInt()-1;
 		 if(no1==0) {
 			 p.setBankPass(no1);
 			 Bank.pass=no1;
@@ -73,7 +74,7 @@ String name;
 	}
 
 	//**入力に間違いがあった場合の入力画面**//
-	private static void OpenError(Player p) {
+	public static void OpenError(Player p) {
 		Time.TLDB80("銀行員:入力に間違いがあります入力しなおしてください\n\n");
 		Open(p);
 	}
@@ -88,16 +89,13 @@ String name;
 	public static void fast(Player p) {
 		Time.TLDB80("銀行員:"+"こんにちは、今日はどういったご用件でしょうか？\n\n");
 		Time.TLDB80("1:口座開設", " 2:説明を聞いた後に口座開設\n\n","==>");
-		int no =new java.util.Scanner(System.in).nextInt()-1;
-		if(no==0) {
+		int no =Num.or12();
+		if(no==1) {
 			Open(p);
-		}else if(no==1){
+		}else if(no==2){
 			announcement(p);
 			fastC(p);
-		}else{
-			Open(p);
 		}
-		StoryTutorial.tutorial2(p);
 	}
 
 	//****////****////****////****////****////****////****////****//

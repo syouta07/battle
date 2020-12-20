@@ -9,9 +9,11 @@ public class Main {
 
 		Player p = new Hero("ななし");
 		p.setEXP(100);
+		
 //		主人公.Level.levelCheck(p);
-		System.out.println("level:"+p.getLevel());
-		System.out.println("EXP:"+p.getEXP());
+//		System.out.println("level:"+p.get
+//		Level();
+//		System.out.println("EXP:"+p.getEXP());
 		StoryTutorial.tutorial(p);
 //		Bank.bankAction(p);
 //		Bank.fast(p);

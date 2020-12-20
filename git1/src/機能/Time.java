@@ -36,11 +36,17 @@ public class Time{
 
 		///**/コメントの後に1000のSleep//**//
 
-/*1-A*/public static void TLDA50(String x) {
+	public static void TLDA50(String x) {
 		char data[] = x.toCharArray();
 		int arr_num = data.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 
+			try{
+				Thread.sleep(50);
+			}
+			catch(InterruptedException e){
+			}System.out.print(data[i]);
+		}
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -48,7 +54,7 @@ public class Time{
 		}
 		System.out.println("");
 	}
-}
+
 
 	public static void TLDA80(String x) {
 		char data[] = x.toCharArray();
