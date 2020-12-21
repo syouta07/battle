@@ -68,4 +68,19 @@ public class Num {
 		Time.TLDA50("\n※1,2,3,4で入力しなおしてください\n");
 		or1234();
 	}
+
+
+
+	//**数の入力があった場合**//
+	public static int HowMany() {
+		int ans = 0;
+		try {
+			Scanner a = new Scanner(System.in);
+			ans = a.nextInt();
+		}catch(InputMismatchException e) {
+			Time.TLDA50("数字で入力してください！\n\n");
+			HowMany();
+		}
+		return ans;
+	}
 }

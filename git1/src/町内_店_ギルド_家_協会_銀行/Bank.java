@@ -1,7 +1,6 @@
 package 町内_店_ギルド_家_協会_銀行;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 import 主人公.Player;
 import 機能.Num;
@@ -10,7 +9,6 @@ import 機能.Time;
 public class Bank{
 private static int bankMany=0;
 private static String pass;
-private static int no;
 String name;
 
 
@@ -108,21 +106,23 @@ String name;
 		}
 	}
 
+
+
 	//****////****////****////****////****////****////****////****//
 	//****//												//****//
-	//****//					 選択					    //****//
+	//****//				  通常選択					    //****//
 	//****//												//****//
 	//****////****////****////****////****////****////****////****//
 
 	//**最初の挨拶と選択**//
 	public static void bankAction(Player p){
-		System.out.println("本日のご用件は何でしょう");
-		System.out.println("1:入金 2:出金 3:貯金を確認する 4:町へ");
-		int a = Nun.or1234();
+		Time.TLDB50("銀行員: 本日のご用件は何でしょうか？\n\n");
+		Time.TLDB50(p.getName()+": [1]:入金 [2]:出金 [3]:貯金を確認する [4]:町へ\n");
+		int a = Num.or1234();
 
 		switch(a) {
 			case 1:
-				payment(p);//入金
+				payment1(p);//入金
 				break;
 			case 2:
 				withdrawal(p);//出金
@@ -135,15 +135,17 @@ String name;
 				break;
 		}
 	}
+
+
 	//**銀行の2回目の選択**//
 	public static void bankAction2(Player p){
-		System.out.println("ほかにご用件はありますか？");
-		System.out.println("1:入金 2:出金 3:貯金を確認する 4:やめる");
-		int a = Nun.or1234();
+		Time.TLDB50("\n銀行員： ほかにご用件はありますか？\n\n");
+		Time.TLDB50("[1]:入金 [2]:出金 [3]:貯金を確認する [4]:村に戻る\n\n");
+		int a = Num.or1234();
 
 		switch(a) {
 			case 1:
-				payment(p);
+				payment1(p);
 				break;
 			case 2:
 				withdrawal(p);
@@ -163,103 +165,111 @@ String name;
 	//****//					 入金					    //****//
 	//****//												//****//
 	//****////****////****////****////****////****////****////****//
-
-	private static void payment(Player p) {
+	private static void payment1(Player p) {
 		Time.TLDB80("銀行員:");
-		Time.TLDB80("かしこまりました入金ですね。","いくら入金されますか？\n\n");
-		Time.TLDB80("入金する額を入力してください");
-		System.out.println("==>");
-		int a = new java.util.Scanner(System.in).nextInt();
+		Time.TLDB80("かしこまりました入金ですね。","いくら入金されますか？\n");
+		payment2(p);
+	}
+	private static void payment3(Player p) {
+		Time.TLDB80("銀行員:");
+		Time.TLDB80("かしこまりました。","いくら入金されますか？\n");
+	}
+	private static void payment2(Player p) {
+
+		Time.TLDB80("貯金残高;"+Bank.bankMany+" 所持金： "+p.many);
+		Time.TLDB80("入金する額を入力してください\n\n");
+		int a = miss(p);
 		Time.TLDB80(a+"の入金でお間違いないですか？\n\n");
-		Time.TLDB80(p.getName()+": [1]:はい [2]:いいえ");
-		System.out.print(p.getName()+"==>");
+		Time.TLDB80(p.getName()+": [1]:はい [2]:いいえ\n");
+		System.out.print(p.getName());
 		int no = Num.or12();
 		if(no==1) {
 			if(a>p.many) {
-				Time.TLDB80("銀行員:","申し訳ございません"+p.getName()+"さんがお預けいしたい金額が手持ち額を超えているようですので、\n\t\t"
-						+ "金額を指定しなおしますか？");
+				Time.TLDB50("銀行員:","申し訳ございません"+p.getName()+"さんの手持ち額を超えています。\n\t\t"
+						+ "金額を指定しなおしますか？\n\n");
+				Time.TLDB50(p.getName()+"[1]:はい [2]:いいえ");
+				int b = Num.or12();
+				if(b ==1) {
+					payment2(p);
+				}else {
+					Time.TLDB50("\n\n銀行員: 入金をキャンセルしますね\n\n");
+				}
 			}else {
 				Bank.bankMany+=a;
 				p.many-=a;
-				Time.TLDB80("銀行員:"+a+"お預かりいたします\n\n");
-				Time.TLDB80("\n貯金残高:"+Bank.bankMany+" 所持金:"+p.many);
+				Time.TLDB80("\n銀行員:"+a+"お預かりいたします\n");
+				Time.TLDB80("\n貯金残高:"+Bank.bankMany+" 所持金:"+p.many+"\n\n");
+			}
+		}else {
+			Time.TLDB50("銀行員: 入力し直しますか？\n\n"+p.getName()+": [1]:はい [2]:いいえ\n");
+			int c = Num.or12();
+			if(c==1) {
+				payment2(p);
 			}
 		}
-
 		bankAction2(p);//銀行のアクション選択
 	}
 
+
 	//**出金**//
 	private static void withdrawal(Player p) {
-		Time.TLDB80("銀行員: いくら出金しますか？\n\n==>");
-		int a = miss();
-		if(Bank.bankMany>=a) {
-			Time.TLDB80(p.getName()+": "+a+"引き出しました。\n"+"\t\t貯金残高");
+		if(Bank.bankMany>0) {
+			Time.TLDB50("銀行員: いくら出金しますか？\n\n"+"貯金残高;"+Bank.bankMany+" 所持金： "+p.many+"\n\n");
+			int a = miss(p);
+			if(Bank.bankMany>=a) {
+				Time.TLDB50(p.getName()+": "+a+"引き出しました。\n");
+				Bank.bankMany=Bank.bankMany-a;
+				p.many+=a;
+				Time.TLDB50("貯金残高;"+Bank.bankMany+" 所持金： "+p.many+"\n\n");
+				bankAction2(p);
+			}else {
+				Time.TLDB50("銀行員: "+p.getName()+"さんの残高が足りず引き出せません・・・\n");
+				Time.TLDB50("銀行員： 出金額を再入力しますか？\n");
+				Time.TLDB50(p.getName()+"[1]:はい [2]:いいえ\n");
+				int b = Num.or12();
+				if(b==1) {
+					withdrawal(p);
+				}else {
+					Time.TLDB50("銀行員：かしこまりました。出金を中止いたします!");
+				}
+			}
 		}else {
-			Time.TLDB80("銀行員: "+p.getName()+"さんの残高が足りず引き出せません・・・");
+			Time.TLDB50("銀行員: "+p.getName()+"さん残高0なので引き出すことができません申し訳ございません。\n\n");
 		}
-//		bankAction2(p);//銀行のアクション選択
+		bankAction2(p);//銀行のアクション選択
 	}
-	private static int miss() {
+
+
+	//**お金の入力ミスの処理**//
+	private static int miss(Player p) {
+		System.out.print("==>");
+		int a =0;
 		try {
-			int a = new java.util.Scanner(System.in).nextInt();
+			a = new java.util.Scanner(System.in).nextInt();
 		}catch(InputMismatchException e) {
 			Time.TLDA50("\n銀行員: 数字でないものが含まれています入力しなおしてください");
+			withdrawal(p);
 		}
+		return a;
 	}
 
 
 	//**貯金確認**//
 	private static void balance(Player p) {
-		Time.TLDB80("銀行員: "+p.getName()+"さんの貯金残高は"+Bank.bankMany+"です");
+		Time.TLDB50("\n銀行員: "+p.getName()+"さんの貯金残高は"+Bank.bankMany+"です\n\n");
 		bankAction2(p);//銀行のアクション選択
 	}
 
 	//**村に帰る**//
 	public static void back(Player p){
-		System.out.println("銀行から出ますか？ 1:はい 2;いいえ");
-		int a = new java.util.Scanner(System.in).nextInt()-1;
-		if (a==0) {
-			System.out.println("ありがとうございました");
-			try {
-				AllAction.moveToAnother(p);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		Time.TLDB50("銀行から出ますか？ [1]:はい [2];いいえ\n");
+		System.out.print("==>");
+		int a = Num.or12();
+		if (a==1) {
+			Time.TLDB50("銀行員: ありがとうございました‼\n\t  またのご来店お待ちしております\n\n");
 		}else {
 			bankAction2(p);
 		}
 	}
 
-	public static void or12() {
-		System.out.print("==>");
-
-		try {
-			Scanner n = new Scanner(System.in);
-			int ans = n.nextInt();
-			if(ans==1 || ans==2) {
-				no = ans;
-			}else {
-				System.out.println("1or2で入力してください");
-				or12();
-			}
-
-		}catch (InputMismatchException e) {
-			System.out.println("数字ではありませんもう一度入力直してください");
-			System.out.println("-->");
-			or12();
-		}
-	}
-
-
-	public static void num1or2Miss() {
-		Time.TLDA50("\n※数字を入力してください\n");
-		or12();
-	}
-
-	//**1or2でなかった場合**//
-	public static void num1or2Miss2() {
-		Time.TLDA50("\n※1か2で入力しなおしてください\n");
-		or12();
-	}
 }
