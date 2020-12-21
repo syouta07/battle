@@ -118,40 +118,40 @@ String name;
 	public static void bankAction(Player p){
 		System.out.println("本日のご用件は何でしょう");
 		System.out.println("1:入金 2:出金 3:貯金を確認する 4:町へ");
-		int a = new java.util.Scanner(System.in).nextInt()-1;
+		int a = Nun.or1234();
 
 		switch(a) {
-			case 0:
+			case 1:
 				payment(p);//入金
 				break;
-			case 1:
+			case 2:
 				withdrawal(p);//出金
 				break;
-			case 2:
+			case 3:
 				balance(p);//残高
 				break;
-//			case 3:
-//				back(p);
-//				break;
+			case 4:
+				back(p);
+				break;
 		}
 	}
 	//**銀行の2回目の選択**//
 	public static void bankAction2(Player p){
 		System.out.println("ほかにご用件はありますか？");
 		System.out.println("1:入金 2:出金 3:貯金を確認する 4:やめる");
-		int a = new java.util.Scanner(System.in).nextInt()-1;
+		int a = Nun.or1234();
 
 		switch(a) {
-			case 0:
+			case 1:
 				payment(p);
 				break;
-			case 1:
+			case 2:
 				withdrawal(p);
 				break;
-			case 2:
+			case 3:
 				balance(p);
 				break;
-			case 3:
+			case 4:
 			back(p);
 				break;
 		}
@@ -173,7 +173,7 @@ String name;
 		Time.TLDB80(a+"の入金でお間違いないですか？\n\n");
 		Time.TLDB80(p.getName()+": [1]:はい [2]:いいえ");
 		System.out.print(p.getName()+"==>");
-		int no = new java.util.Scanner(System.in).nextInt();
+		int no = Num.or12();
 		if(no==1) {
 			if(a>p.many) {
 				Time.TLDB80("銀行員:","申し訳ございません"+p.getName()+"さんがお預けいしたい金額が手持ち額を超えているようですので、\n\t\t"
@@ -192,7 +192,7 @@ String name;
 	//**出金**//
 	private static void withdrawal(Player p) {
 		Time.TLDB80("銀行員: いくら出金しますか？\n\n==>");
-		int a = new java.util.Scanner(System.in).nextInt();
+		int a = miss();
 		if(Bank.bankMany>=a) {
 			Time.TLDB80(p.getName()+": "+a+"引き出しました。\n"+"\t\t貯金残高");
 		}else {
@@ -200,6 +200,14 @@ String name;
 		}
 //		bankAction2(p);//銀行のアクション選択
 	}
+	private static int miss() {
+		try {
+			int a = new java.util.Scanner(System.in).nextInt();
+		}catch(InputMismatchException e) {
+			Time.TLDA50("\n銀行員: 数字でないものが含まれています入力しなおしてください");
+		}
+	}
+
 
 	//**貯金確認**//
 	private static void balance(Player p) {
