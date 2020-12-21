@@ -7,16 +7,28 @@ public class Main {
 
 static int no=0;
 	public static void main(String[] args) {
-		for(int i=0; i<2; i++) {
-			int a = num();
-			System.out.println(a);
-		}
-		for(int i=0; i<10; i++) {
-			int a = num();
-			System.out.println(a);
-		}
-
+		
+		int a = num();
+		System.out.println(a);
+		num1();
+		num2();
 	}
+	
+	public static void num1() {
+		int a = num();
+		System.out.println(a);
+		if(a==1) {
+			num1();
+		}
+		num();
+	}
+		
+	public static void num2() {
+		int a = num();
+		System.out.println(a);
+	}
+	
+
 
 	public static int num() {
 		try {
@@ -40,4 +52,5 @@ static int no=0;
 		return no;
 
 	}
+	
 }

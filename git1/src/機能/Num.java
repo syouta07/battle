@@ -8,16 +8,15 @@ public class Num {
 	//** 1or2を選択するときに使用 **//
 	public static int or12() {
 		System.out.print("==>");
+
 		try {
-			@SuppressWarnings("resource")
 			Scanner n = new Scanner(System.in);
 			int ans = n.nextInt();
 			if(ans==1 || ans==2) {
 				no = ans;
-				return ans;
+				return no;
 			}else {
 				System.out.println("1or2で入力してください");
-				System.out.print("-->");
 				or12();
 			}
 
@@ -45,7 +44,6 @@ public class Num {
 	public static int or1234() {
 		System.out.print("==>");
 		try {
-			@SuppressWarnings("resource")
 			int ans = new java.util.Scanner(System.in).nextInt();
 			if(!(ans==1 || ans==2 || ans==3 || ans==4)) {
 				num1234Miss2();

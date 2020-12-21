@@ -22,13 +22,11 @@ static String name;
 		Time.TLDA50("\t"+name+"でよろしいですか？\n\n");
 		System.out.println("[1]:はい [2]:いいえ ");
 		//パッケージ・(機能)
-		Scanner s = new Scanner(System.in);
-		int no = s.nextInt();
+		int no = Num.or12();
 
 		if(no==1) {
 			Time.TLDA50("名前を"+name+"に決定しました！");
 			x.setName(name);
-			s.close();
 		}else {
 			Time.TLDA50("\t"+name+"から名前を変更します");
 			name(x);
@@ -79,7 +77,6 @@ static String name;
 		if(!(a.equals(c))) {
 			nameWriteMiss(a,b);
 		}
-		s.close();
 	}
 	public static void nameWriteMiss(String a,String b) {
 		Time.TLDB80(b+": 入力にミスがあります\n入力し直してください");
