@@ -10,42 +10,44 @@ public class Level {
 	}
 
 
-	public  void levelCheck(Player p) {
-		if(p.getLevel()<=10){
+	public static  void levelCheck(Player p) {
+		if(p.getLevel()<10){
+			level1(p);
+			
+		}else if(p.getLevel()<20){
 			level10(p);
 
-		}else if(p.getLevel()<=20){
+		}else if(p.getLevel()<30){
 			level20(p);
 
-		}else if(p.getLevel()<=30){
+		}else if(p.getLevel()<40){
 			level30(p);
 
-		}else if(p.getLevel()<=40){
+		}else if(p.getLevel()<50){
 			level40(p);
 
-		}else if(p.getLevel()<=50){
+		}else if(p.getLevel()<60){
 			level50(p);
 
-		}else if(p.getLevel()<=60){
+		}else if(p.getLevel()<70){
 			level60(p);
 
-		}else if(p.getLevel()<=70){
+		}else if(p.getLevel()<80){
 			level70(p);
 
-		}else if(p.getLevel()<=80){
+		}else if(p.getLevel()<90){
 			level80(p);
-
-		}else if(p.getLevel()<=90){
+		}else if(p.getLevel()<100){
 			level90(p);
-		}else if(p.getLevel()<=100){
-			level100(p);
 		}
 	}
-	public void level10(Player p) {
+
+
+	public static void level1(Player p) {
 		int comparison =(p.getEXP()-p.getLevel()*25);
 
 		//レベル1の時のみかつEXP25以上でlevelプラス
-		if(p.getLevel()==1 && p.getEXP()>25) {
+		if(p.getLevel()==1 && p.getEXP()>=25) {
 			p.setLevel(p.getLevel()+1);
 		}
 
@@ -56,18 +58,27 @@ public class Level {
 					break;
 				}
 				p.setLevel(p.getLevel()+1);
+				if(p.getLevel()==10) {
+					level10(p);
+				}
 			}
 		}
-		if(p.getLevel()>=10 && p.getEXP()>=275) {
-			level20(p);
+		if(p.getLevel()>=10 && p.getEXP()>=225) {
+			level10(p);
 		}
 	}
-	public void level20(Player p) {
-		int comparison =(p.getEXP()-225-p.getLevel()*50);
 
+
+	public static void level10(Player p) {
+		int comparison =(p.getEXP()-225-p.getLevel()*50);
+		
+		//レベル10の時かつEXP275でlevelプラス1
+		if(p.getLevel()==10 && p.getEXP()>=275) {
+			p.setLevel(p.getLevel()+1);
+		}
 
 		//レベル20レベル以下の時のループ
-		if(p.getLevel()<=20 && comparison/50>=1) {
+		if(p.getLevel()>=11 && p.getLevel()<=20 && comparison/50>=1) {
 			for(int j=0; j<comparison/50; j++) {
 				if(p.getLevel()>=20) {
 					break;
@@ -76,10 +87,10 @@ public class Level {
 			}
 		}
 		if(p.getLevel()>=20 && p.getEXP()>=725) {
-			level30(p);
+			level20(p);
 		}
 	}
-	public void level30(Player p) {
+	public static void level20(Player p) {
 		int comparison =(p.getEXP()-725-p.getLevel()*75);
 
 
@@ -93,10 +104,10 @@ public class Level {
 			}
 		}
 		if(p.getLevel()>=30 && p.getEXP()>=1450) {
-			level40(p);
+			level30(p);
 		}
 	}
-	public void level40(Player p) {
+	public static void level30(Player p) {
 		int comparison =(p.getEXP()-1450-p.getLevel()*100);
 
 
@@ -110,10 +121,10 @@ public class Level {
 			}
 		}
 		if(p.getLevel()>=40 && p.getEXP()>=2450) {
-			level50(p);
+			level40(p);
 		}
 	}
-	public void level50(Player p) {
+	public static void level40(Player p) {
 		int comparison =(p.EXP-2450-p.getLevel()*125);
 
 
@@ -127,10 +138,10 @@ public class Level {
 			}
 		}
 		if(p.getLevel()>=50 && p.getEXP()>=3700) {
-			level60(p);
+			level50(p);
 		}
 	}
-	public void level60(Player p) {
+	public static void level50(Player p) {
 		int comparison =(p.getEXP()-3700-p.getLevel()*150);
 
 
@@ -144,11 +155,11 @@ public class Level {
 			}
 		}
 		if(p.getLevel()>=60 && p.getEXP()>=5200) {
-			level70(p);
+			level60(p);
 		}
 	}
 
-	public void level70(Player p) {
+	public static void level60(Player p) {
 		int comparison =(p.getEXP()-5200-p.getLevel()*150);
 
 		//レベル70レベル以下の時のループ
@@ -161,10 +172,10 @@ public class Level {
 			}
 		}
 		if(p.getLevel()>=70 && p.getEXP()>=6950) {
-			level80(p);
+			level70(p);
 		}
 	}
-	public void level80(Player p) {
+	public static void level70(Player p) {
 		int comparison =(p.getEXP()-6950-p.getLevel()*200);
 
 
@@ -178,10 +189,10 @@ public class Level {
 			}
 		}
 		if(p.getLevel()>=80 && p.getEXP()>=8950) {
-			level90(p);
+			level80(p);
 		}
 	}
-	public void level90(Player p) {
+	public static void level80(Player p) {
 		int comparison =(p.getEXP()-8950-p.getLevel()*250);
 
 
@@ -195,10 +206,10 @@ public class Level {
 			}
 		}
 		if(p.getLevel()>=90 && p.getEXP()>=11450) {
-			level100(p);
+			level90(p);
 		}
 	}
-	public void level100(Player p) {
+	public static void level90(Player p) {
 		int comparison =(p.getEXP()-11450-p.getLevel()*275);
 
 

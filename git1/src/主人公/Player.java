@@ -6,12 +6,12 @@ public abstract class  Player {
 	int EXP;
 	public int many;
 	String job;
-	private String name;
+	//private String name;
 	int hp;
-	private int hpMax;
+	//private int hpMax;
 	int level;
-	private int damage;
-	private int bankPass;
+	//private int damage;
+	//private int bankPass;
 
 	public abstract void damage(Monster m);
 

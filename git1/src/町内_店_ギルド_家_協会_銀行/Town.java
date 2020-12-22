@@ -50,8 +50,8 @@ public class Town {
 		String [] item = {"薬草","回復薬","パン","剣","靴"};
 		System.out.println("お～いあんちゃん何か買っていかねえか？");
 		System.out.println("1:何があるんだい？ 2:買わない");
-		int a = new java.util.Scanner(System.in).nextInt()-1;
-		if (a==0) {
+		int a = Num.or12();
+		if (a==1) {
 			System.out.println("ありがてえや");
 			System.out.println("こんなのがあるんだがどうだ？");
 			for(int i=0; i<3; i++) {
