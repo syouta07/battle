@@ -53,7 +53,15 @@ public class Level {
 				if(p.getLevel()>=10) {
 					break;
 				}
+		//**レベルが2つ以上上がる可能性があるためループ**//
 				p.setLevel(p.getLevel()+1);
+
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed10(p);
+				}else {
+					Damage.damagePower10(p);
+				}
 				if(p.getLevel()==10) {
 					level10(p);
 				}
@@ -78,6 +86,13 @@ public class Level {
 				}
 		//レベルが2つ以上上がる可能性があるためループ
 				p.setLevel(p.getLevel()+1);
+
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed20(p);
+				}else {
+					Damage.damagePower20(p);
+				}
 			}
 		}
 		if(p.getLevel()>=20 && p.getEXP()>=725) {
@@ -95,7 +110,15 @@ public class Level {
 				if(p.getLevel()>=30) {
 					break;
 				}
+				//**レベルUP**//
 				p.setLevel(p.getLevel()+1);
+
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed30(p);
+				}else {
+					Damage.damagePower30(p);
+				}
 			}
 		}
 		if(p.getLevel()>=30 && p.getEXP()>=1475) {
@@ -114,6 +137,12 @@ public class Level {
 					break;
 				}
 				p.setLevel(p.getLevel()+1);
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed40(p);
+				}else {
+					Damage.damagePower40(p);
+				}
 			}
 		}
 		if(p.getLevel()>=40 && p.getEXP()>=2475) {
@@ -131,6 +160,12 @@ public class Level {
 					break;
 				}
 				p.setLevel(p.getLevel()+1);
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed50(p);
+				}else {
+					Damage.damagePower50(p);
+				}
 			}
 		}
 		if(p.getLevel()>=50 && p.getEXP()>=3725) {
@@ -148,6 +183,12 @@ public class Level {
 					break;
 				}
 				p.setLevel(p.getLevel()+1);
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed60(p);
+				}else {
+					Damage.damagePower60(p);
+				}
 			}
 		}
 		if(p.getLevel()>=60 && p.getEXP()>=5225) {
@@ -165,6 +206,12 @@ public class Level {
 					break;
 				}
 				p.setLevel(p.getLevel()+1);
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed70(p);
+				}else {
+					Damage.damagePower70(p);
+				}
 			}
 		}
 		if(p.getLevel()>=70 && p.getEXP()>=6975) {
@@ -182,6 +229,12 @@ public class Level {
 					break;
 				}
 				p.setLevel(p.getLevel()+1);
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed80(p);
+				}else {
+					Damage.damagePower80(p);
+				}
 			}
 		}
 		if(p.getLevel()>=80 && p.getEXP()>=8975) {
@@ -201,6 +254,12 @@ public class Level {
 					break;
 				}
 				p.setLevel(p.getLevel()+1);
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed90(p);
+				}else {
+					Damage.damagePower90(p);
+				}
 			}
 		}
 		if(p.getLevel()>=90 && p.getEXP()>=11225) {
@@ -219,6 +278,12 @@ public class Level {
 					break;
 				}
 				p.setLevel(p.getLevel()+1);
+				//**タイプ別のダメージUP**//
+				if(p.getType().equals("speed")) {
+					Damage.damageSpeed100(p);
+				}else {
+					Damage.damagePower100(p);
+				}
 			}
 		}
 		if(p.getLevel()==100) {

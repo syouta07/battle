@@ -9,10 +9,11 @@ public class Hero extends Player{
 	private int maxHp; private int maxMp;
 	private int level;
 	private int EXP;	int damage;
-	private int maxExp =	13725;
+	private int maxExp =13725;
 	private final int maxLevel = 100;
 	private String name;
 	private int bankPass;
+	private String type;
 
 	//** 主人公の初期値設定 **//
 	public Hero(String name) {
@@ -60,6 +61,13 @@ public class Hero extends Player{
 		return this.maxExp;
 	}
 
+	//**属性**//
+	public String getType() {
+		return this.type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	//** 回復 **//
 	public Player heel(Player p) {
 		if(this.hp+this.hp/10<this.maxHp) {

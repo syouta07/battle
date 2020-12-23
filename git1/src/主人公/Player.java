@@ -53,4 +53,7 @@ public abstract class  Player {
 	public abstract int getBankPass();
 	public abstract void setBankPass(int bankPass);
 
+	//**属性**//
+	public abstract String getType();
+	public abstract void setType(String type);
 }
