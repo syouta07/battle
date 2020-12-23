@@ -12,6 +12,7 @@ private static String pass;
 String name;
 
 
+
 	//****////****////****////****////****////****////****////****//
 	//****//												//****//
 	//****//	チュ-トリアル時の口座開設暗証番号登録		//****//
@@ -24,12 +25,12 @@ String name;
 		Open(p);
 	}
 
-	//**入力が誤っていた際のパスワード再設定**//
-	private static String pass(Player p) {
+/**	//**入力が誤っていた際のパスワード再設定**/
+	public static String pass(Player p) {
 		Time.TLDB80("銀行員:4桁のパスワードを入力しなおしてください");
 		System.out.println("==>");
-		String St =new java.util.Scanner(System.in).next();
-		return passCheck(St,p);
+		String no =new java.util.Scanner(System.in).next();
+		return passCheck(no,p);
 	}
 
 	//**入力された文字が数列か判定する**//
@@ -62,7 +63,6 @@ String name;
 
 	//**口座開設の一連の流れ**//
 	private static void Open(Player p) {
-
 		Time.TLDB80("\n銀行員:では、"	,p.getName()+"さんの口座を開設しますので4桁のパスワードを入力してください\n\t\t※同じ数字を4つ使用することはできませんのでご注意ください\n==>");
 		String no =new java.util.Scanner(System.in).nextLine();
 		 no = passCheck(no,p);
@@ -170,10 +170,16 @@ String name;
 		Time.TLDB80("かしこまりました入金ですね。","いくら入金されますか？\n");
 		payment2(p);
 	}
-	private static void payment3(Player p) {
-		Time.TLDB80("銀行員:");
-		Time.TLDB80("かしこまりました。","いくら入金されますか？\n");
-	}
+
+
+	//**入金時の挨拶(必要なければ消去)**//
+//	private static void payment3(Player p) {
+//		Time.TLDB80("銀行員:");
+//		Time.TLDB80("かしこまりました。","いくら入金されますか？\n");
+//	}
+
+
+	//**入金時の確認**//
 	private static void payment2(Player p) {
 
 		Time.TLDB80("貯金残高;"+Bank.bankMany+" 所持金： "+p.many);

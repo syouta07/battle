@@ -36,11 +36,12 @@ public abstract class  Player {
 	//**LeveL**//
 	public abstract int getLevel();
 	public abstract void setLevel(int level);
+	public abstract int getMaxLevel();
 
 	//**EXP**//
 	public abstract int getEXP();
 	public abstract void setEXP(int EXP);
-
+	public abstract int getMaxEXP();
 	//**死亡時**//
 	public abstract void die(Player p,String place);
 

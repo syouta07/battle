@@ -9,7 +9,8 @@ public class Hero extends Player{
 	private int maxHp; private int maxMp;
 	private int level;
 	private int EXP;	int damage;
-	int maxLevel = 99;
+	private int maxExp =	13725;
+	private final int maxLevel = 100;
 	private String name;
 	private int bankPass;
 
@@ -22,6 +23,7 @@ public class Hero extends Player{
 		this.damage = 10;
 		many=1000;
 	}
+
 
 	//** 名前 **//
 	public String getName() {
@@ -54,6 +56,10 @@ public class Hero extends Player{
 		this.EXP = exp;
 	}
 
+	public int getMaxEXP() {
+		return this.maxExp;
+	}
+
 	//** 回復 **//
 	public Player heel(Player p) {
 		if(this.hp+this.hp/10<this.maxHp) {
@@ -80,6 +86,9 @@ public class Hero extends Player{
 	}
 	public void setLevel(int level) {
 		this.level = level;
+	}
+	public int getMaxLevel() {
+		return maxLevel;
 	}
 
 	//** ダメージ **//
@@ -129,4 +138,5 @@ public class Hero extends Player{
 		m.hp -= this.damage;
 		Time.TLDA80(this.name+"は"+m.name+"に"+this.damage+"を与えた\n\n",m.name+"の残りHPは"+m.hp+"\n\n");
 	}
+
 }
