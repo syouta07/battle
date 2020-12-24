@@ -14,7 +14,7 @@ public class Level {
 	public static  void levelCheck(Player p) {
 		if(p.getLevel()<=10){
 			level1(p);
-
+			
 		}else if(p.getLevel()<=20){
 			level10(p);
 

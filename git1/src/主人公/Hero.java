@@ -11,9 +11,11 @@ public class Hero extends Player{
 	private int EXP=0;	int damage;
 	private int maxExp =13725;
 	private final int maxLevel = 100;
+	private int speed;//**攻撃速度**//
 	private String name;
-	private int bankPass;
-	private String type;
+	private int bankPass;//** 銀行口座の暗証番号 **//
+	private String type;//** 属性 **//
+	private String Abnormal;//** 状態異常 **//
 
 	//** 主人公の初期値設定 **//
 	public Hero(String name) {
@@ -22,9 +24,9 @@ public class Hero extends Player{
 		this.mp=10;
 		this.setLevel(1);
 		this.damage = 10;
+		this.maxHp=100;
 		many=1000;
 	}
-
 
 	//** 名前 **//
 	public String getName() {
@@ -56,9 +58,18 @@ public class Hero extends Player{
 	public void setEXP(int exp) {
 		this.EXP = exp;
 	}
-
+	@Override
 	public int getMaxEXP() {
 		return this.maxExp;
+	}
+
+	//** speed **//
+	public int getSpped() {
+		return this.speed;
+	}
+	public void setSpeed(int speed) {
+		this.speed = speed
+				;
 	}
 
 	//**属性**//
@@ -68,6 +79,7 @@ public class Hero extends Player{
 	public void setType(String type) {
 		this.type = type;
 	}
+
 	//** 回復 **//
 	public Player heel(Player p) {
 		if(this.hp+this.hp/10<this.maxHp) {
@@ -122,6 +134,14 @@ public class Hero extends Player{
 		this.maxMp = maxMp;
 	}
 
+	//** 状態異常 **//
+	public String getAbnormal() {
+		return Abnormal;
+	}
+	public void setAbnormal(String Abnormal) {
+		this.Abnormal = Abnormal;
+	}
+
 
 	//**逃亡**//
 	public void run() {
@@ -146,5 +166,7 @@ public class Hero extends Player{
 		m.hp -= this.damage;
 		Time.TLDA80(this.name+"は"+m.name+"に"+this.damage+"を与えた\n\n",m.name+"の残りHPは"+m.hp+"\n\n");
 	}
+
+
 
 }

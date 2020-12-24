@@ -1,20 +1,32 @@
 package バトル11_26;
 
 import 主人公.Hero;
+import 主人公.Level;
 import 主人公.Player;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Player p = new Hero("ななし");
-		int l=2;
-		for(int i=0; i<10; i++) {
-			if(i==l) {
-				
+		boolean a =true;
+		p.setType("speed");
+		p.setEXP(0);
+		while(a) {
+			p.setEXP(p.getEXP()+1);
+			Level.levelCheck(p);
+			if(p.getLevel()==90) {
+				a =false;
 			}
-			System.out.println(i);
-			
 		}
+
+		System.out.println("level: "+p.getLevel()+" hp: "+p.getHp()+" maxhp: "+p.getMaxHp());
+		p.setHp(p.getHp()-500);//833
+		System.out.println(p.getHp());
+		Item.highRecoveryAgents(p);
+
+
+		//933
+
 //メインの流れ↓↓↓↓↓↓↓↓
 //		StoryTutorial.tutorial(p);
 //		Bank.announcement(p);
