@@ -59,8 +59,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed10(p);
+					HpUp.hpSpeed10(p);
 				}else {
 					Damage.damagePower10(p);
+					HpUp. hpPower10(p);
 				}
 				if(p.getLevel()==10) {
 					level10(p);
@@ -90,8 +92,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed20(p);
+					HpUp.hpSpeed20(p);
 				}else {
 					Damage.damagePower20(p);
+					HpUp. hpPower20(p);
 				}
 			}
 		}
@@ -116,8 +120,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed30(p);
+					HpUp.hpSpeed30(p);
 				}else {
 					Damage.damagePower30(p);
+					HpUp. hpPower30(p);
 				}
 			}
 		}
@@ -140,8 +146,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed40(p);
+					HpUp.hpSpeed40(p);
 				}else {
 					Damage.damagePower40(p);
+					HpUp. hpPower40(p);
 				}
 			}
 		}
@@ -163,8 +171,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed50(p);
+					HpUp.hpSpeed50(p);
 				}else {
 					Damage.damagePower50(p);
+					HpUp. hpPower50(p);
 				}
 			}
 		}
@@ -186,8 +196,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed60(p);
+					HpUp.hpSpeed60(p);
 				}else {
 					Damage.damagePower60(p);
+					HpUp. hpPower60(p);
 				}
 			}
 		}
@@ -209,8 +221,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed70(p);
+					HpUp.hpSpeed70(p);
 				}else {
 					Damage.damagePower70(p);
+					HpUp. hpPower70(p);
 				}
 			}
 		}
@@ -232,8 +246,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed80(p);
+					HpUp.hpSpeed80(p);
 				}else {
 					Damage.damagePower80(p);
+					HpUp. hpPower80(p);
 				}
 			}
 		}
@@ -257,8 +273,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed90(p);
+					HpUp.hpSpeed90(p);
 				}else {
 					Damage.damagePower90(p);
+					HpUp. hpPower90(p);
 				}
 			}
 		}
@@ -281,8 +299,10 @@ public class Level {
 				//**タイプ別のダメージUP**//
 				if(p.getType().equals("speed")) {
 					Damage.damageSpeed100(p);
+					HpUp.hpSpeed100(p);
 				}else {
 					Damage.damagePower100(p);
+					HpUp. hpPower100(p);
 				}
 			}
 		}
