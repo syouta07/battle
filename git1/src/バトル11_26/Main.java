@@ -9,8 +9,9 @@ public class Main {
 	public static void main(String[] args) {
 		Player p = new Hero("ななし");
 		boolean a =true;
+		p.setAbnormal("毒");
 		p.setType("speed");
-		p.setEXP(0);
+
 		while(a) {
 			p.setEXP(p.getEXP()+1);
 			Level.levelCheck(p);
@@ -18,11 +19,18 @@ public class Main {
 				a =false;
 			}
 		}
+		System.out.println("level: "+p.getLevel()+" hp: "+p.getHp()+" maxhp: "+p.getMaxHp());
+		System.out.println();
+		while(p.getAbnormal().equals("毒")) {
+			p.setHp(p.getHp()-500);
+
+			Item.normalDetoxification(p);
+		}
+
+
 
 		System.out.println("level: "+p.getLevel()+" hp: "+p.getHp()+" maxhp: "+p.getMaxHp());
-		p.setHp(p.getHp()-500);//833
-		System.out.println(p.getHp());
-		Item.highRecoveryAgents(p);
+
 
 
 		//933

@@ -136,7 +136,7 @@ public class Hero extends Player{
 
 	//** 状態異常 **//
 	public String getAbnormal() {
-		return Abnormal;
+		return this.Abnormal;
 	}
 	public void setAbnormal(String Abnormal) {
 		this.Abnormal = Abnormal;

@@ -56,4 +56,7 @@ public abstract class  Player {
 	//**属性**//
 	public abstract String getType();
 	public abstract void setType(String type);
+
+	public abstract String getAbnormal();
+	public abstract void setAbnormal(String Abnormal);
 }
