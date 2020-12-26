@@ -98,7 +98,7 @@ static int no =0;
 		System.out.print("村長:");
 		Time.TLDB80(p.getName()+"くん登録が終わったみたいだな!\n");
 		System.out.print("\n村長:");
-		Time.TLDB80("用事は済んだんだろ？"+"今日はゆっくり町でも見て装備や道具をそろえるといい\n");
+		Time.TLDB80("用事は済んだんだろ？"+"今日はゆっくり町でお店でも行って顔合わせでもしてくるといい‼\n");
 		Time.TLDB80("\t\t\tあと伝え忘れていたが、"+p.getName()+"用に家を準備してある","しばらくの間はそこを拠点にするといい\n");
 		Time.rug20();
 
@@ -107,21 +107,22 @@ static int no =0;
 
 	//**町内の移動先の選択**//
 	public static void tutorialTown(Player p){
-		System.out.print(p.getName()+": ");
-		Time.TLDB80("どこに行こうかな\n");
-		System.out.println("[1]:武器屋 [2]:防具屋 [3]:商店 [4]:家に行く");
+		String s = p.getName()+": ";
+		System.out.print(s);
+		Time.TLDB50("どこに行こうかな\n");
+		System.out.println("[1]:武器屋 [2]:防具屋 [3]:商店 [4]:家に行く\n");
 		int a = Num.or1234();
 		if(a==1) {
-			Time.TLDB80("\n武器屋に行こう!\n\n");
+			Time.TLDB50(s+"武器屋に行こう!\n\n");
 			tutorialWeapon(p);
 		}else if(a==2) {
-			Time.TLDB80("\n防具屋に行こう!\n\n");
+			Time.TLDB50(s+"防具屋に行こう!\n\n");
 			tutorialArmor(p);
 		}else if(a==3) {
-			Time.TLDB80("\n商店に行こう!\n\n");
+			Time.TLDB50(s+"商店に行こう!\n\n");
 			tutorialGoods2(p);
 		}else if(a==4) {
-			Time.TLDB80("\n家に帰るとするか!\n\n");
+			Time.TLDB50(s+"家に帰る\n\n");
 				Home.Action(p);
 		}else {
 			tutorialTown(p);
@@ -131,14 +132,17 @@ static int no =0;
 	//**武器屋の選択**//
 	public static void tutorialWeapon(Player p){
 		Time.rug15();
-		Time.TLDB80("店主:"+"何をお求めで？\n\n");
-		Time.TLDB50("1:武器一覧を見る 2:店をでる\n");
+		String s = p.getName()+": ";
+		String wName = "武器屋: ";
+		Time.TLDB50(wName+"初めて見る顔だな‼ここではレベルに合わせて武器を売っているんだ\n",
+					wName+"武器一覧でそれをみることができるよ");
+		Time.TLDB50(s+"[1]:武器一覧を見る [2]:店をでる\n");
 		int b = Num.or12();
 		if(b==1) {
-			Time.TLDB80("武器屋: 今"+p.getName()+"の買える武器はこれだ\n");
+			Time.TLDB80(wName+p.getName()+"の買える武器はこれだ\n");
 			tutorialWeapon(p);
 		}else{
-			Time.TLDB80("武器屋: またよろしくな！\n");
+			Time.TLDB80(wName+"またよろしくな！\n");
 			tutorialTown(p);
 		}
 	}
@@ -146,14 +150,16 @@ static int no =0;
 	//**防具屋の選択**//
 	public static void tutorialArmor(Player p) {
 		Time.rug15();
-		Time.TLDB80("いらっしゃい！"+p.getName()+"どんな防具が欲しいんだい？\n\n");
-		Time.TLDB50("1:防具一覧を見る 2:店をでる");
+		String aName="防具屋: ";
+		String s = p.getName()+": ";
+		Time.TLDB80(aName+"いらっしゃい！"+p.getName()+"どんな防具が欲しいんだい？\n\n");
+		Time.TLDB50(s+"[1]:防具一覧を見る [2]:店をでる");
 		int b = Num.or12();
 		if(b==1) {
 			Time.TLDB80("一覧表を閲覧\n");//防具のつらんひょうを表示する
 			tutorialArmor(p);
 		}else{
-			Time.TLDB80("ありがとうな\n");
+			Time.TLDB80(aName+"ありがとうな\n");
 			tutorialTown(p);
 		}
 	}
@@ -161,17 +167,28 @@ static int no =0;
 	//**雑貨屋の選択**//
 	public static void tutorialGoods2(Player p) {
 		Time.rug15();
-		Time.TLDB80("1:薬草 2:生肉 3:包帯 4:やめる\n");
+		String s = p.getName()+": ";
+		String gName = "雑貨屋: ";
+		Time.TLDB50(gName+"いらっしゃい!お客さん新顔だね‼","そしたらお店の説明をしてくね!\n");
+		Time.TLDB50(gName+"ここでは冒険に必要なものをそろえることができるよ！\n",gName+"回復系や戦闘でも使えるアイテムを扱ているよ");
+		Time.TLDB50(gName+"説明はこのくらいにして商品見ていくかい？");
+		Time.TLDB50(s+"[1]:はい [2]:いいえ\n");
+		int b = Num.or12();
+		if(b==2) {
+			Time.TLDB50(gName+"またのお越しを‼");
+			tutorialTown(p);
+		}
+		Time.TLDB50(s+"[1]:回復系 [2]:戦闘系 [3]: [4]:やめる\n");
 		int a = Num.or1234();
 		if(a==1) {
 			System.out.println("");
-			Time.TLDB80("薬草が今日は安いからな持ってけ");
+			Time.TLDB50(gName+"薬草が今日は安いからな持ってけ");
 			tutorialGoods3(p);
 		}else if(a==2) {
-			Time.TLDB80("生肉は保存に気をつけな！","ありがとうまた来てくれよな\n");
+			Time.TLDB50(gName+"生肉は保存に気をつけな！","ありがとうまた来てくれよな\n");
 			tutorialGoods3(p);
 		}else if(a==3) {
-			Time.TLDB80("冒険者は包帯が必需品だな","ありがとうまた来てくれよな\n");
+			Time.TLDB50(gName+"冒険者は包帯が必需品だな","ありがとうまた来てくれよな\n");
 			tutorialGoods3(p);
 		}else {
 			tutorialTown(p);
