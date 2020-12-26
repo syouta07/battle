@@ -1,12 +1,14 @@
 package 町内_店_ギルド_家_協会_銀行;
 
+import java.util.ArrayList;
+
 import フィールド.Cave;
 import フィールド.Wilderness;
 import 主人公.Player;
 
 public class AllAction {
 
-	public static void moveToAnother(Player p){
+	public static void moveToAnother(ArrayList<Player>people){
 		String [] place = {"協会","銀行","ギルド","町","荒野","洞窟","何もしない","家"};
 		System.out.println("1:協会 2:銀行 3:ギルド 4:町 6:洞窟 7:何もしない 8:家");
 		int Ch =new java.util.Scanner(System.in).nextInt();

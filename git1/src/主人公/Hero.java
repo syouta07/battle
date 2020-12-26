@@ -8,6 +8,7 @@ public class Hero extends Player{
 	private int hp;    private int mp;
 	private int maxHp; private int maxMp;
 	private int level;
+	private int defense;
 	private int EXP=0;	int damage;
 	private int maxExp =13725;
 	private final int maxLevel = 100;
@@ -70,6 +71,14 @@ public class Hero extends Player{
 	public void setSpeed(int speed) {
 		this.speed = speed
 				;
+	}
+
+	//** defense **//
+	public int getDefense() {
+		return this.defense;
+	}
+	public void setDefense(int defense) {
+		this.defense = defense;
 	}
 
 	//**属性**//

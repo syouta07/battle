@@ -319,7 +319,7 @@ public class Time{
 		int arr_num1 = data1.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 			try{
-				Thread.sleep(50);
+				Thread.sleep(10);//50
 			}
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
@@ -332,7 +332,7 @@ public class Time{
 		for (int i = 0; i <= arr_num1-1; i++) {
 
 			try{
-				Thread.sleep(50);
+				Thread.sleep(5);//50
 			}
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
@@ -348,7 +348,7 @@ public class Time{
 		int arr_num1 = data1.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 			try{
-				Thread.sleep(80);
+				Thread.sleep(8);//80
 			}
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
@@ -361,7 +361,7 @@ public class Time{
 		for (int i = 0; i <= arr_num1-1; i++) {
 
 			try{
-				Thread.sleep(80);
+				Thread.sleep(8);//80
 			}
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
@@ -377,7 +377,7 @@ public class Time{
 		int arr_num1 = data1.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 			try{
-				Thread.sleep(100);
+				Thread.sleep(10);//100
 			}
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
@@ -390,7 +390,7 @@ public class Time{
 		for (int i = 0; i <= arr_num1-1; i++) {
 
 			try{
-				Thread.sleep(100);
+				Thread.sleep(10);//10
 			}
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
@@ -406,7 +406,7 @@ public class Time{
 		int arr_num1 = data1.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 			try{
-				Thread.sleep(300);
+				Thread.sleep(10);//300
 			}
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
@@ -419,7 +419,7 @@ public class Time{
 		for (int i = 0; i <= arr_num1-1; i++) {
 
 			try{
-				Thread.sleep(300);
+				Thread.sleep(10);//300
 			}
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
@@ -441,7 +441,7 @@ public class Time{
 		int arr_num = data.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 			try{
-				Thread.sleep(50);
+				Thread.sleep(10);//50
 			}
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
@@ -455,7 +455,7 @@ public class Time{
 		for (int i = 0; i <= arr_num1-1; i++) {
 
 			try{
-				Thread.sleep(50);
+				Thread.sleep(10);//50
 			}
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
@@ -469,7 +469,7 @@ public class Time{
 		for (int i = 0; i <= arr_num2-1; i++) {
 
 			try{
-				Thread.sleep(50);
+				Thread.sleep(10);//50
 			}
 			catch(InterruptedException e){
 			}System.out.print(data2[i]);
@@ -485,7 +485,7 @@ public class Time{
 		int arr_num = data.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 			try{
-				Thread.sleep(80);
+				Thread.sleep(10);//80
 			}
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
@@ -499,7 +499,7 @@ public class Time{
 		for (int i = 0; i <= arr_num1-1; i++) {
 
 			try{
-				Thread.sleep(80);
+				Thread.sleep(10);//80
 			}
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
@@ -513,7 +513,7 @@ public class Time{
 		for (int i = 0; i <= arr_num2-1; i++) {
 
 			try{
-				Thread.sleep(80);
+				Thread.sleep(10);//10
 			}
 			catch(InterruptedException e){
 			}System.out.print(data2[i]);
@@ -530,7 +530,7 @@ public class Time{
 		int arr_num = data.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 			try{
-				Thread.sleep(100);
+				Thread.sleep(10);//100
 			}
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
@@ -544,7 +544,7 @@ public class Time{
 		for (int i = 0; i <= arr_num1-1; i++) {
 
 			try{
-				Thread.sleep(100);
+				Thread.sleep(10);//100
 			}
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
@@ -558,7 +558,7 @@ public class Time{
 		for (int i = 0; i <= arr_num2-1; i++) {
 
 			try{
-				Thread.sleep(100);
+				Thread.sleep(10);//100
 			}
 			catch(InterruptedException e){
 			}System.out.print(data2[i]);
@@ -574,7 +574,7 @@ public class Time{
 		int arr_num = data.length;
 		for (int i = 0; i <= arr_num-1; i++) {
 			try{
-				Thread.sleep(300);
+				Thread.sleep(10);//300
 			}
 			catch(InterruptedException e){
 			}System.out.print(data[i]);
@@ -588,7 +588,7 @@ public class Time{
 		for (int i = 0; i <= arr_num1-1; i++) {
 
 			try{
-				Thread.sleep(300);
+				Thread.sleep(10);//300
 			}
 			catch(InterruptedException e){
 			}System.out.print(data1[i]);
@@ -602,7 +602,7 @@ public class Time{
 		for (int i = 0; i <= arr_num2-1; i++) {
 
 			try{
-				Thread.sleep(300);
+				Thread.sleep(10);//300
 			}
 			catch(InterruptedException e){
 			}System.out.print(data2[i]);

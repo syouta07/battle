@@ -22,7 +22,6 @@ public class Num {
 
 		}catch (InputMismatchException e) {
 			System.out.println("数字ではありませんもう一度入力直してください");
-			System.out.println("-->");
 			or12();
 		}
 		return no;

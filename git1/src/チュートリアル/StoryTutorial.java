@@ -1,5 +1,7 @@
 package チュートリアル;
 
+import java.util.ArrayList;
+
 import 主人公.Player;
 import 機能.Num;
 import 機能.Time;
@@ -123,7 +125,7 @@ static int no =0;
 			tutorialGoods2(p);
 		}else if(a==4) {
 			Time.TLDB50(s+"家に帰る\n\n");
-				Home.Action(p);
+				home(p);
 		}else {
 			tutorialTown(p);
 		}
@@ -140,7 +142,8 @@ static int no =0;
 		int b = Num.or12();
 		if(b==1) {
 			Time.TLDB80(wName+p.getName()+"の買える武器はこれだ\n");
-			tutorialWeapon(p);
+			Time.TLDB80(p.getName()+"武器屋のことが分かったからほかのお店にも行ってみよう!");
+			tutorialTown(p);
 		}else{
 			Time.TLDB80(wName+"またよろしくな！\n");
 			tutorialTown(p);
@@ -153,7 +156,7 @@ static int no =0;
 		String aName="防具屋: ";
 		String s = p.getName()+": ";
 		Time.TLDB80(aName+"いらっしゃい！"+p.getName()+"どんな防具が欲しいんだい？\n\n");
-		Time.TLDB50(s+"[1]:防具一覧を見る [2]:店をでる");
+		Time.TLDB50(s+"[1]:防具一覧を見る [2]:店をでる\n");
 		int b = Num.or12();
 		if(b==1) {
 			Time.TLDB80("一覧表を閲覧\n");//防具のつらんひょうを表示する
@@ -169,41 +172,50 @@ static int no =0;
 		Time.rug15();
 		String s = p.getName()+": ";
 		String gName = "雑貨屋: ";
-		Time.TLDB50(gName+"いらっしゃい!お客さん新顔だね‼","そしたらお店の説明をしてくね!\n");
-		Time.TLDB50(gName+"ここでは冒険に必要なものをそろえることができるよ！\n",gName+"回復系や戦闘でも使えるアイテムを扱ているよ");
-		Time.TLDB50(gName+"説明はこのくらいにして商品見ていくかい？");
-		Time.TLDB50(s+"[1]:はい [2]:いいえ\n");
-		int b = Num.or12();
-		if(b==2) {
-			Time.TLDB50(gName+"またのお越しを‼");
-			tutorialTown(p);
-		}
-		Time.TLDB50(s+"[1]:回復系 [2]:戦闘系 [3]: [4]:やめる\n");
+
+		Time.TLDB50(s+"[1]:回復系 [2]:戦闘系 [3]:やめる\n");
 		int a = Num.or1234();
 		if(a==1) {
-			System.out.println("");
-			Time.TLDB50(gName+"薬草が今日は安いからな持ってけ");
+			Time.TLDB50(gName+"回復系は、・薬草・回復薬・高級回復薬・粉塵・解毒草・解毒薬・高級解毒薬があるよ!\n");
 			tutorialGoods3(p);
 		}else if(a==2) {
-			Time.TLDB50(gName+"生肉は保存に気をつけな！","ありがとうまた来てくれよな\n");
+			Time.TLDB50(gName+"戦闘系は","・鬼人薬・硬化薬があるぞ！");
 			tutorialGoods3(p);
-		}else if(a==3) {
-			Time.TLDB50(gName+"冒険者は包帯が必需品だな","ありがとうまた来てくれよな\n");
-			tutorialGoods3(p);
-		}else {
+		}else{
+			Time.TLDB50(gName+"ありがとうまた来てくれよな\n");
 			tutorialTown(p);
 		}
 
 	}
 	//**雑貨屋の最初の挨拶**//
 	public static void tutorialGoods1(Player p) {
-		Time.TLDB80("商店: "+"いらっしゃい！何をお求めですか？\n\n");
+		String s = p.getName()+": ";
+		String gName = "雑貨屋: ";
+		Time.TLDB50(gName+"いらっしゃい!お客さん新顔だね‼","そしたらお店の説明をしてくね!\n");
+		Time.TLDB50(gName+"ここでは冒険に必要なものをそろえることができるよ！\n",gName+"回復系や戦闘でも使えるアイテムを扱ているよ");
+		Time.TLDB50(gName+"説明はこのくらいにして商品見ていくかい？\n\n");
+		Time.TLDB50(s+"[1]:はい [2]:いいえ\n");
+		int b = Num.or12();
+		if(b==2) {
+			Time.TLDB50(gName+"またのお越しを‼");
+			tutorialTown(p);
+		}
 		tutorialGoods2(p);
+
 	}
 
 	//**雑貨屋の2回目以降の挨拶**//
 	public static void tutorialGoods3(Player p) {
-		Time.TLDB80("商店: "+"ほかにも必要なものあるかい？\n\n");
+		Time.TLDB50("商店: "+"ほかにも見ていくかい？\n\n");
 		tutorialGoods2(p);
+	}
+
+	//** 仲間を増減できるように配列を作り引数で渡す **//
+	public static void home(Player p) {
+		Time.TLDB50(p.getName()+": ここが村長さんが用意してくれた家か!\n");
+		Time.TLDB50(p.getName()+": 家では睡眠をして回復、アイテムや武器、仲間も管理できるみたいだ!\n");
+		ArrayList<Player> people = new ArrayList<Player>();
+		people.add(p);
+		Home.Action(people);
 	}
 }

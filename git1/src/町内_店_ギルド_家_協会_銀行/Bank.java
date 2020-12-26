@@ -22,13 +22,13 @@ String name;
 	//**説明後に口座開設に誘導する**//
 	private static void fastC(Player p) {
 		Time.TLDB80("銀行員:説明は以上になります。口座開設の準備いたします!");
-		Open(p);
+		Open1(p);
 	}
 
 /**	//**入力が誤っていた際のパスワード再設定**/
 	public static String pass(Player p) {
-		Time.TLDB80("銀行員:4桁のパスワードを入力しなおしてください");
-		System.out.println("==>");
+		Time.TLDB80("銀行員:4桁のパスワードを入力しなおしてください\n");
+		System.out.print("==>");
 		String no =new java.util.Scanner(System.in).next();
 		return passCheck(no,p);
 	}
@@ -61,22 +61,29 @@ String name;
 		return noS;
 	}
 
+
+	 private static void Open1(Player p) {
+		 Time.TLDB80("\n銀行員:では、"	,p.getName()+"さんの口座を開設します");
+		 Open(p);
+	 }
+
 	//**口座開設の一連の流れ**//
 	private static void Open(Player p) {
-		Time.TLDB80("\n銀行員:では、"	,p.getName()+"さんの口座を開設しますので4桁のパスワードを入力してください\n\t\t※同じ数字を4つ使用することはできませんのでご注意ください\n==>");
+		Time.TLDB80("\n銀行員: 4桁のパスワードを入力してください\n\t\t※同じ数字を4つ使用することはできませんのでご注意ください\n");
+		System.out.print("==>");
 		String no =new java.util.Scanner(System.in).nextLine();
 		 no = passCheck(no,p);
-		 Time.TLDB80("銀行員:",no+"でよろしいでしょうか？\n\n");
+		 Time.TLDB80("\n銀行員:",no+"でよろしいでしょうか？\n\n");
 		 Time.TLDB80(p.getName(),": [1]:はい [2]:いいえ");
 		 int no1 = Num.or12();
 		 if(no1==1) {
 			 int set = Integer.parseInt(no);
 			 p.setBankPass(set);
 			 Bank.pass=no;
-			 Time.TLDB80("銀行員:","登録完了しました。暗証番号は*"+Bank.pass+"なので忘れないでくださいね！\n\t\tこれからよろしくお願いします！",
+			 Time.TLDB80("銀行員: 登録完了しました。暗証番号は*"+Bank.pass+"なので忘れないでくださいね！\n\t\tこれからよろしくお願いします！",
 					 "またのお越しをお待ちしております‼");
 		 }else {
-			 pass(p);
+			Open(p);
 		 }
 	}
 
@@ -99,7 +106,7 @@ String name;
 		int a = Num.or12();
 
 		if(a==1) {
-			Open(p);
+			Open1(p);
 		}else if(a==2){
 			announcement(p);
 			fastC(p);
@@ -171,12 +178,6 @@ String name;
 		payment2(p);
 	}
 
-
-	//**入金時の挨拶(必要なければ消去)**//
-//	private static void payment3(Player p) {
-//		Time.TLDB80("銀行員:");
-//		Time.TLDB80("かしこまりました。","いくら入金されますか？\n");
-//	}
 
 
 	//**入金時の確認**//
