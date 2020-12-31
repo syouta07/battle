@@ -66,4 +66,9 @@ public abstract class  Player {
 	//** 防御力 **//
 	public abstract int getDefense();
 	public abstract void setDefense(int defense) ;
+
+	//** ランク **//
+	public abstract char getRank();
+	public abstract void setRank(char rank) ;
+
 }

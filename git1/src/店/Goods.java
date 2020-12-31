@@ -1,4 +1,4 @@
-package 町内_店_ギルド_家_協会_銀行;
+package 店;
 
 import java.util.ArrayList;
 
@@ -15,11 +15,19 @@ public class Goods {
 
 	private static void goods3(ArrayList<Player>people){
 		Time.TLDB50("雑貨屋: ほかにも見て行くかい？\n\n");
-		goods2(people);
+		Time.TLDB50(people.get(0).getName()+"; [1]:はい [2]:いいえ\n\n");
+		int a = Num.or12();
+		if(a==1) {
+			goods2(people);
+		}else {
+			Time.TLDB50(n+"またのご来店をお待ちしております！\n\n");
+			Town_Buy_Choose.choose(people);
+		}
+
 	}
 	public static void goods2(ArrayList<Player>people){
-		System.out.println("1:薬草 2:生肉 3:包帯 4:やめる");
-		int b = Num.or1234();
+		System.out.println("1:回復系 2:戦闘系 3:やめる");
+		int b = Num.or123();
 		System.out.print("==>");
 		if(b==1) {
 			Time.TLDB50(n+"薬草だね？");
@@ -35,7 +43,7 @@ public class Goods {
 			goods3(people);
 		}else {
 			Time.TLDB50(n+"またのご来店をお待ちしております！\n\n");
-			Town.choose(people);
+			Town_Buy_Choose.choose(people);
 		}
 	}
 	private static int HowMany(ArrayList<Player>people){

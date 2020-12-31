@@ -1,8 +1,8 @@
 package フィールド;
 
 import 主人公.Player;
-import 町内_店_ギルド_家_協会_銀行.AllAction;
-import 町内_店_ギルド_家_協会_銀行.Guild;
+import 町_ギルド_家_協会_銀行.AllAction;
+import 町_ギルド_家_協会_銀行.Guild;
 
 public class Cave {
 

@@ -32,7 +32,28 @@ public class Time{
 			///*2-B*/   2行 + 2ラグ(1000)
 
 			///*3-B*/   3行 + 2ラグ(1000)
+	
+	
+	//チームの名前を一列に表示する際に使用
+	public static void TLDAL50(String x) {
+		char data[] = x.toCharArray();
+		int arr_num = data.length;
+		for (int i = 0; i <= arr_num-1; i++) {
 
+			try{
+				Thread.sleep(10);//**50**//
+			}
+			catch(InterruptedException e){
+			}System.out.print(data[i]);
+		}
+		try {
+			Thread.sleep(10);//**1000**//
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 
 		///**/コメントの後に1000のSleep//**//
 

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import 主人公.Player;
 import 機能.Num;
 import 機能.Time;
-import 町内_店_ギルド_家_協会_銀行.Bank;
-import 町内_店_ギルド_家_協会_銀行.Home;
+import 町_ギルド_家_協会_銀行.Bank;
+import 町_ギルド_家_協会_銀行.Home;
 public class StoryTutorial {
 
 	//**主人公の名前を決める**//

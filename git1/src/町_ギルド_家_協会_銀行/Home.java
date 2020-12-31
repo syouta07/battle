@@ -1,8 +1,9 @@
-package 町内_店_ギルド_家_協会_銀行;
+package 町_ギルド_家_協会_銀行;
 
 import java.util.ArrayList;
 
 import 主人公.Player;
+import 店.Town_Buy_Choose;
 import 機能.Num;
 import 機能.Time;
 
@@ -12,7 +13,7 @@ public class Home {								/*ヒーローのHPまだ決まってないから
 
 	public static void Action(ArrayList<Player> people){
 		int [] food = new int[50];
-		Time.TLDB50("何をしますか？\n");
+		Time.TLDB50(people.get(0).getName()+": 何をしますか？\n");
 		Time.TLDB50("[1]:アイテム管理 2:仲間 3:寝る 4:外へ出かける ");
 		int a  =Num.or1234();
 		if(a==1) {
@@ -31,7 +32,7 @@ public class Home {								/*ヒーローのHPまだ決まってないから
 		}else {
 			Time.TLDB80("暇だからどこか出かけようかな\n\n");
 			try {
-				Town.lottery(people);
+				Town_Buy_Choose.lottery(people);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

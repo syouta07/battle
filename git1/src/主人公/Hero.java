@@ -2,7 +2,7 @@ package 主人公;
 
 import モンスター.Monster;
 import 機能.Time;
-import 町内_店_ギルド_家_協会_銀行.Home;
+import 町_ギルド_家_協会_銀行.Home;
 
 public class Hero extends Player{
 	private int hp;    private int mp;
@@ -17,7 +17,7 @@ public class Hero extends Player{
 	private int bankPass;//** 銀行口座の暗証番号 **//
 	private String type;//** 属性 **//
 	private String Abnormal;//** 状態異常 **//
-
+	private char rank;
 	//** 主人公の初期値設定 **//
 	public Hero(String name) {
 		this.name = name;
@@ -27,6 +27,7 @@ public class Hero extends Player{
 		this.damage = 10;
 		this.maxHp=100;
 		many=1000;
+		this.rank = 'F';
 	}
 
 	//** 名前 **//
@@ -40,13 +41,13 @@ public class Hero extends Player{
 
 	//** HP **//
 	public int getHp() {
-		return hp;
+		return this.hp;
 	}
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
 	public int getMaxHp() {
-		return maxHp;
+		return this.maxHp;
 	}
 	public void setMaxHp(int maxHp) {
 		this.maxHp = maxHp;
@@ -89,6 +90,13 @@ public class Hero extends Player{
 		this.type = type;
 	}
 
+	//** ランク **//
+	public char getRank() {
+		return this.rank;
+	}
+	public void setRank(char rank) {
+		this.rank = rank;
+	}
 	//** 回復 **//
 	public Player heel(Player p) {
 		if(this.hp+this.hp/10<this.maxHp) {

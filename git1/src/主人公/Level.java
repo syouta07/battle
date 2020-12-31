@@ -1,7 +1,6 @@
 package 主人公;
 
 import モンスター.Monster;
-import 機能.Time;
 
 public class Level {
 
@@ -12,9 +11,10 @@ public class Level {
 
 
 	public static  void levelCheck(Player p) {
+
 		if(p.getLevel()<=10){
 			level1(p);
-			
+
 		}else if(p.getLevel()<=20){
 			level10(p);
 
@@ -313,7 +313,6 @@ public class Level {
 	public static void level100(Player p) {
 		p.setEXP(p.getMaxEXP());
 		p.setLevel(p.getMaxLevel());
-		Time.TLDA50("レベルが上が上限に達しました！\nこれ以上はレベルが上がりません");
 	}
 
 }
