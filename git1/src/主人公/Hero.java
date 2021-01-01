@@ -18,6 +18,7 @@ public class Hero extends Player{
 	private String type;//** 属性 **//
 	private String Abnormal;//** 状態異常 **//
 	private char rank;
+	private int [] item=new int [20];
 	//** 主人公の初期値設定 **//
 	public Hero(String name) {
 		this.name = name;
@@ -28,6 +29,7 @@ public class Hero extends Player{
 		this.maxHp=100;
 		many=1000;
 		this.rank = 'F';
+		this.Abnormal = "なし";
 	}
 
 	//** 名前 **//
@@ -159,6 +161,15 @@ public class Hero extends Player{
 		this.Abnormal = Abnormal;
 	}
 
+	//** アイテム **//
+	//[0]:薬草 [1]:回復薬 [2]:高級回復薬 [3]:粉塵 [4]:解毒草 [5]:解毒薬
+	//[6]:高級解毒薬 [7]:鬼人種 [8]:鬼人薬 [9]:忍耐の種 [10]:硬化薬
+	public int getItem(int a) {
+		return this.item[a];
+	}
+	public void setItem(int a,int b) {
+		this.item[a]=b;
+	}
 
 	//**逃亡**//
 	public void run() {

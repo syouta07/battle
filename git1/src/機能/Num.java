@@ -158,7 +158,7 @@ public class Num {
 		or123456();
 	}
 
-	//**1or2でなかった場合**//
+	//**1to6でなかった場合**//
 	public static void num123456Miss2() {
 		Time.TLDA50("\n※1,2,3,4,5で入力しなおしてください\n");
 		or1234();
@@ -178,4 +178,33 @@ public class Num {
 		}
 		return ans;
 	}
+
+	public static int or1To11() {
+		System.out.print("==>");
+		try {
+			int ans = new java.util.Scanner(System.in).nextInt();
+			if(!(ans==1 || ans==2 || ans==3 || ans==4 || ans==5 || ans==6 || ans==7 || ans==8 || ans==9 || ans==10 || ans==11)) {
+				num1To11Miss2();
+			}else {
+				no=ans;
+				return ans;
+			}
+		}catch (InputMismatchException e) {
+			num1To11Miss();
+		}
+		return no;
+	}
+
+	//** 文字列だった場合ループ**//
+	public static void num1To11Miss() {
+		Time.TLDA50("\n※数字を入力してください\n");
+		or123456();
+	}
+
+	//**1or2でなかった場合**//
+	public static void num1To11Miss2() {
+		Time.TLDA50("\n※1,2,3,4,5で入力しなおしてください\n");
+		or1234();
+	}
+
 }

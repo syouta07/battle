@@ -30,7 +30,7 @@ public class AllAction {
 		String [] place = {"協会","銀行","ギルド","店","家"};
 		Time.TLDB50(people.get(0).getName()+": どこに行こうかな？\n");
 		Time.TLDB50(people.get(0).getName()+": [1]:協会 [2]:銀行 [3]:ギルド [4]:店 [5]:家\n");
-		int Ch =Num.or1234();
+		int Ch =Num.or12345();
 		System.out.println(people.get(0).getName()+": "+place[Ch-1]+"へ向かおう!\n");
 
 		switch(Ch) {

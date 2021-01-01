@@ -32,7 +32,7 @@ public class Association {			//*村に戻るが完成していない*//
 			for(int i=0; i<people.size(); i++) {
 				Time.TLDAL50(people.get(i).getName()+" ");
 			}
-			Time.TLDB50(": 祈ったら清らかな気持ちになった。\n");
+			Time.TLDB50(": 祈ったら清らかな気持ちになった。\n\n");
 			association2(people);
 
 			//生き返らせる
@@ -45,7 +45,7 @@ public class Association {			//*村に戻るが完成していない*//
 			Time.TLDB50("[1]:死ぬのが怖い [2]:冒険を終わる [3]:戻る\n");
 			int zange= Num.or123();
 			if(zange == 1) {
-				Time.TLDB50(s+"恥じることはありません。死ぬのは怖いものです。\n");
+				Time.TLDB50(s+"恥じることはありません。死ぬのは怖いものです。\n\n");
 				association3(people);
 			}else if(zange==2) {
 				Time.TLDB300("・・・・・");
@@ -54,7 +54,7 @@ public class Association {			//*村に戻るが完成していない*//
 //				AllAction.moveToAnother(people);
 			}
 		}else {
-			Time.TLDB50(people.get(0).getName()+": 村に帰りますか？");
+			Time.TLDB50(people.get(0).getName()+": 村に帰りますか？\n");
 			System.out.println("[1]:はい [2]:いいえ");
 			int a = Num.or12();
 			if(a==1) {
@@ -91,8 +91,6 @@ public class Association {			//*村に戻るが完成していない*//
 				Time.TLDAL50(people.get(i).getName()+" ");
 			}else {
 				count++;
-				System.out.println("i:"+i);
-				System.out.println("count:"+count);
 			}
 			if(i==people.size()-1 && count<=people.size()-2) {
 				Time.TLDB50("を生き返らせることに成功した！\n");
