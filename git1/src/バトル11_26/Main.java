@@ -19,17 +19,17 @@ public class Main {
 		people.get(2).setHp(people.get(2).getHp()-100);
 		people.get(1).setHp(people.get(1).getHp()-100);
 		people.get(0).setAbnormal("毒");
-		町_ギルド_家_協会_銀行.Home.setItem(0,1);
-		町_ギルド_家_協会_銀行.Home.setItem(1,2);
-		町_ギルド_家_協会_銀行.Home.setItem(2,3);
-		町_ギルド_家_協会_銀行.Home.setItem(3,4);
-		町_ギルド_家_協会_銀行.Home.setItem(4,5);
-		町_ギルド_家_協会_銀行.Home.setItem(5,6);
-		町_ギルド_家_協会_銀行.Home.setItem(6,7);
-		町_ギルド_家_協会_銀行.Home.setItem(7,8);
-		町_ギルド_家_協会_銀行.Home.setItem(8,9);
-		町_ギルド_家_協会_銀行.Home.setItem(9,10);
-		町_ギルド_家_協会_銀行.Home.setItem(10,11);
+		町_ギルド_家_協会_銀行.Home.setItemMany(0,10);
+		町_ギルド_家_協会_銀行.Home.setItemMany(1,9);
+		町_ギルド_家_協会_銀行.Home.setItemMany(2,0);
+		町_ギルド_家_協会_銀行.Home.setItemMany(3,7);
+		町_ギルド_家_協会_銀行.Home.setItemMany(4,6);
+		町_ギルド_家_協会_銀行.Home.setItemMany(5,5);
+		町_ギルド_家_協会_銀行.Home.setItemMany(6,4);
+		町_ギルド_家_協会_銀行.Home.setItemMany(7,3);
+		町_ギルド_家_協会_銀行.Home.setItemMany(8,2);
+		町_ギルド_家_協会_銀行.Home.setItemMany(9,0);
+		町_ギルド_家_協会_銀行.Home.setItemMany(10,11);
 		Home.Action(people);
 
 //メインの流れ↓↓↓↓↓↓↓↓

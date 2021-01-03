@@ -9,8 +9,9 @@ import 機能.Time;
 public class Home {
 
 //** アイテム管理ボックス **//
-//[0]:薬草 [1]:回復薬 [2]:高級回復薬 [3]:粉塵 [4]:解毒草 [5]:解毒薬 [6]:高級解毒薬 [7]:鬼人種 [8]:鬼人薬 [9]:忍耐の種 [10]:硬化薬
- private static int [] item = new int [11];
+//[0]:薬草 [1]:回復薬 [2]:高級回復薬 [3]:粉塵 [4]:解毒草 [5]:解毒薬 [6]:高級解毒薬 [7]:鬼力種 [8]:鬼力薬 [9]:硬化の種 [10]:硬化薬
+ private static String []  item = {"薬草","回復薬","高級回復薬","粉塵","解毒草","解毒薬","高級解毒薬","鬼力の種","鬼力薬","硬化の種","薬"};
+ private static int []  itemMany= new int [11];
 
 	public static void Action(ArrayList<Player> people){
 		Time.TLDB50(people.get(0).getName()+": 何をしますか？\n");
@@ -105,55 +106,117 @@ public class Home {
 		//[6]:高級解毒薬 [7]:鬼人種 [8]:鬼人薬 [9]:忍耐の種 [10]:硬化薬
 
 		int count =0;
+
 		System.out.println("\nアイテBOX");
 		System.out.println("------------------------------------");
 
 		//アイテム数が1以上のモノだけ表示
 		for(int i=0; i<item.length; i++) {
-			if(getItem(i)>=1) {
+			if(getItemMany(i)>=1) {
 				count++;
-				switch(i+1) {
-				case 1:
-					System.out.println("["+count+"]:薬草 * "+getItem(i));
-					break;
-				case 2:
-					System.out.println("["+count+"]:回復薬 * "+getItem(i));
-					break;
-				case 3:
-					System.out.println("["+count+"]:高級回復薬 * "+getItem(i));
-					break;
-				case 4:
-					System.out.println("["+count+"]:解毒草 * "+getItem(i));
-					break;
-				case 5:
-					System.out.println("["+count+"]:解毒薬 * "+getItem(i));
-					break;
-				case 6:
-					System.out.println("["+count+"]:高級解毒薬 * "+getItem(i));
-					break;
-				case 7:
-					System.out.println("["+count+"]:粉塵 * "+getItem(i));
-					break;
-				case 8:
-					System.out.println("["+count+"]:鬼人の種 * "+getItem(i));
-					break;
-				case 9:
-					System.out.println("["+count+"]:鬼人薬 * "+getItem(i));
-					break;
-				case 10:
-					System.out.println("["+count+"]:忍耐の種 * "+getItem(i));
-					break;
-				case 11:
-					System.out.println("["+count+"]:硬化薬 * "+getItem(i));
-					break;
+
+				//所有数が1～9
+				if(getItemMany(i)<=9) {
+
+					//かつアイテム表示番号が1～9
+					if(count<=9) {
+						if(item[i].length()==1) {
+							System.out.println("["+count+"] : \t  "+item[i]+"\t\t *  "+getItemMany(i));
+						}else if(item[i].length()==2) {
+							System.out.println("["+count+"] :   "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"   *  "+getItemMany(i));
+						}else if(item[i].length()==3){
+							System.out.println("["+count+"] : "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"  "+item[i].substring(2,3)+" *  "+getItemMany(i));
+						}else if(item[i].length()==4){
+							System.out.println("["+count+"] : "+item[i].substring(0,1)+" "+item[i].substring(1,3)+" "+item[i].substring(3,4)+" *  "+getItemMany(i));
+						}else {
+							System.out.println("["+count+"] : "+item[i]+" *  "+getItemMany(i));
+						}
+					//かつアイテム表示番号が10以上
+					}else {
+						if(item[i].length()==1) {
+							System.out.println("["+count+"]: \t  "+item[i]+" \t *  "+getItemMany(i));
+						}else if(item[i].length()==2) {
+							System.out.println("["+count+"]:   "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"   *  "+getItemMany(i));
+						}else if(item[i].length()==3){
+							System.out.println("["+count+"]: "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"  "+item[i].substring(2,3)+" *  "+getItemMany(i));
+						}else if(item[i].length()==4){
+							System.out.println("["+count+"]: "+item[i].substring(0,1)+" "+item[i].substring(1,3)+" "+item[i].substring(3,4)+" *  "+getItemMany(i));
+						}else {
+							System.out.println("["+count+"]: "+item[i]+" *  "+getItemMany(i));
+						}
+					}
+
+				//所有数が10以上
+				}else {
+					//かつ表示番号が1～9
+					if(count<=9){
+						if(item[i].length()==1) {
+							System.out.println("["+count+"] : \t  "+item[i]+" \t * "+getItemMany(i));
+						}else if(item[i].length()==2) {
+							System.out.println("["+count+"] :   "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"   * "+getItemMany(i));
+						}else if(item[i].length()==3){
+							System.out.println("["+count+"] : "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"  "+item[i].substring(2,3)+" * "+getItemMany(i));
+						}else if(item[i].length()==4){
+							System.out.println("["+count+"] : "+item[i].substring(0,1)+" "+item[i].substring(1,3)+" "+item[i].substring(3,4)+" * "+getItemMany(i));
+						}else {
+							System.out.println("["+count+"] : "+item[i]+" * "+getItemMany(i));
+						}
+					//かつ表示番号が10以上
+					}else {
+						if(item[i].length()==1) {
+							System.out.println("["+count+"]: \t  "+item[i]+" \t * "+getItemMany(i));
+						}else if(item[i].length()==2) {
+							System.out.println("["+count+"]:   "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"   * "+getItemMany(i));
+						}else if(item[i].length()==3){
+							System.out.println("["+count+"]: "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"  "+item[i].substring(2,3)+" * "+getItemMany(i));
+						}else if(item[i].length()==4){
+							System.out.println("["+count+"]: "+item[i].substring(0,1)+" "+item[i].substring(1,3)+" "+item[i].substring(3,4)+" * "+getItemMany(i));
+						}else {
+							System.out.println("["+count+"]: "+item[i]+" * "+getItemMany(i));
+						}
+					}
 				}
-
-				Time.TLDB50(people.get(0).getName()+": 何を取り出しますか？");
-
+			}else {
+				//所有数が0でアイテム表示番号が9以下
+				if(count<=9) {
+					if(item[i].length()==1) {
+						System.out.println("["+count+"] : \t  "+item[i]+"\t\t * "+"--");
+					}else if(item[i].length()==2) {
+						System.out.println("["+count+"] :   "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"   * "+"--");
+					}else if(item[i].length()==3){
+						System.out.println("["+count+"] : "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"  "+item[i].substring(2,3)+" * "+"--");
+					}else if(item[i].length()==4){
+						System.out.println("["+count+"] : "+item[i].substring(0,1)+" "+item[i].substring(1,3)+" "+item[i].substring(3,4)+" * "+"--");
+					}else {
+						System.out.println("["+count+"] : "+item[i]+" * "+"--");
+					}
+				//所有数が0でアイテム表示番号が10以上
+				}else {
+					if(item[i].length()==1) {
+						System.out.println("["+count+"]: \t  "+item[i]+" \t *  "+"--");
+					}else if(item[i].length()==2) {
+						System.out.println("["+count+"]:   "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"   *  "+"--");
+					}else if(item[i].length()==3){
+						System.out.println("["+count+"]: "+item[i].substring(0,1)+"  "+item[i].substring(1,2)+"  "+item[i].substring(2,3)+" *  "+"--");
+					}else if(item[i].length()==4){
+						System.out.println("["+count+"]: "+item[i].substring(0,1)+" "+item[i].substring(1,3)+" "+item[i].substring(3,4)+" *  "+"--");
+					}else {
+						System.out.println("["+count+"]: "+item[i]+" *  "+"--");
+					}
+				}
 			}
 		}
+		Time.TLDB50(people.get(0).getName()+": 何を取り出しますか？\n");
 		item(people);
+		int a = Num.or1To11();
+		switch(a-1) {
+		 case 0:
+//			 getItemMany();
+		}
 	}
+
+
+
 
 	//** アイテムを取り出す個数を決める **//
 	public static void picMany(int no) {
@@ -163,13 +226,13 @@ public class Home {
 
 	}
 
-	public static int getItem(int no) {
-		return item[no];
+	public static int getItemMany(int no) {
+		return itemMany[no];
 	}
 
 
-	public static void setItem(int no,int many) {
-		Home.item[no] = many;
+	public static void setItemMany(int no,int many) {
+		itemMany[no] = many;
 	}
 
 }
