@@ -17,7 +17,7 @@ public class Town_Buy_Choose {
 
 	public static void choose(ArrayList<Player>people){
 		Time.TLDB50(people.get(0).getName()+": どのお店に行こうかな？\n");
-		Time.TLDB50(people.get(0).getName()+"[1]:武器屋 [2]:防具屋 [3]:雑貨屋 [4]:戻る\n");
+		Time.TLDB50(people.get(0).getName()+"[1]:武器屋 [2]:防具屋 [3]:雑貨屋 [4]:町へ\n");
 		int a = Num.or1234();
 
 		switch(a) {

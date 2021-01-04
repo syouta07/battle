@@ -20,7 +20,7 @@ public class Hero extends Player{
 	private String type;//** 属性 **//
 	private String Abnormal;//** 状態異常 **//
 	private char rank;
-	private static String []  item = {"薬草","回復薬","高級回復薬","粉塵","解毒草","解毒薬","高級解毒薬","鬼力の種","鬼力薬","硬化の種","薬"};
+	private static String []  item = {"薬草","回復薬","高級回復薬","粉塵","解毒草","解毒薬","高級解毒薬","鬼力の種","硬化の種","鬼力薬","硬化薬"};
 
 	//** 主人公の初期値設定 **//
 	public Hero(String name) {

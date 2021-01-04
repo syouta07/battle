@@ -27,7 +27,7 @@ public class Goods {
 
 	}
 	public static void goods2(ArrayList<Player>people){
-		System.out.println("[1]:回復系 [2]:解毒 [3]:戦闘系 [4]:やめる\n");
+		System.out.println("[1]:回復系 [2]:解毒 [3]:戦闘強化系 [4]:やめる\n");
 		int b = Num.or1234();
 
 		//回復系
@@ -58,40 +58,47 @@ public class Goods {
 		//解毒系
 		}else if(b==2) {
 			for(int i=0; i<3; i++) {
-				Time.TLDB50("["+(i+1)+"]"+Home.getItem()[i+4]+" * "+((i+1)*15)+" ");
+				Time.TLDB50("["+(i+1)+"]:"+Home.getItem()[i+4]+" * "+((i+1)*15)+" ");
 			}
 			Time.TLDB50("[4]:やめる\n");
 			Time.TLDB50(people.get(0).getName()+": 購入しますか?\n");
 			int a = Num.or1234();
 			if(a==1) {
 				//解毒草
-				HowMany(15,Home.getItem()[4],people,3);
+				HowMany(15,Home.getItem()[4],people,4);
 			}else if(a==2){
 				//解毒薬
-				HowMany(30,Home.getItem()[5],people,4);
+				HowMany(30,Home.getItem()[5],people,5);
 			}else if(a==3) {
 				//高級解毒薬
-				HowMany(45,Home.getItem()[6],people,5);
+				HowMany(45,Home.getItem()[6],people,6);
 			}else {
 				goods3(people);
 			}
 			//戦闘系
 		}else if(b==3){
 			for(int i=0; i<4; i++) {
-				Time.TLDB50("["+(i+1)+"]"+Home.getItem()[i+7]+" * "+((i+1)*30)+" ");
-			}
-			Time.TLDB50("[4]:やめる\n");
+				if(i<=1) {
+					Time.TLDB50("["+(i+1)+"]:"+Home.getItem()[i+7]+" * "+30+" ");
+				}else {
+					Time.TLDB50("["+(i+1)+"]:"+Home.getItem()[i+7]+" * "+(2*30)+" ");
+				}
+							}
+			Time.TLDB50("[5]:やめる\n");
 			Time.TLDB50(people.get(0).getName()+": 購入しますか?\n");
-			int a = Num.or1234();
+			int a = Num.or12345();
 			if(a==1) {
-				//
-				HowMany(15,Home.getItem()[7],people,6);
+				//鬼力の種
+				HowMany(30,Home.getItem()[7],people,7);
 			}else if(a==2){
-				//回復薬
-				HowMany(30,Home.getItem()[8],people,7);
+				//硬化の種
+				HowMany(30,Home.getItem()[8],people,8);
 			}else if(a==3) {
-				//高級回復薬
-				HowMany(45,Home.getItem()[9],people,8);
+				//鬼力種
+				HowMany(60,Home.getItem()[9],people,9);
+				//硬化薬
+			}else if(a==4){
+				HowMany(60,Home.getItem()[10],people,10);
 			}else {
 				goods3(people);
 			}
@@ -116,11 +123,20 @@ public class Goods {
 				Player.itemMany[c]+=d;
 				Time.TLDB50(people.get(0).getName()+":"+b+"を"+d+"個購入しました!\n\n");
 				Time.TLDB50(people.get(0).getName()+":残金"+Player.many+"円 "+b+"*"+Player.itemMany[c]+"個\n\n");
+				goods3(people);
 			}else {
 				goods3(people);
 			}
 		}else {
-			Time.TLDB50(people.get(0).getName()+":手持ちが足りないようだ・・・狩りに行くか銀行に行ってお金を引き出そう!\n\n");
+			Time.TLDB50(people.get(0).getName()+":"+(a*d-Player.many)+"足りない・・・"+(Player.many/a)+"個なら購入できそうだ!\n\n");
+			Time.TLDB50(people.get(0).getName()+":個数を入力し直しますか？\n");
+			Time.TLDB50(people.get(0).getName()+":[1]:はい [2]いいえ\n");
+			int e = Num.or12();
+			if(e==1) {
+				HowMany(a,b,people,c);
+			}else {
+				goods3(people);
+			}
 		}
 	}
 
