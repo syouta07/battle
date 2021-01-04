@@ -1,17 +1,21 @@
 package 主人公;
 
+import java.util.ArrayList;
+
 import モンスター.Monster;
 
 public abstract class  Player {
 	int EXP;
-	public int many;
+	public static int many;
 	String job;
+	public static int [] itemMany = new int [11];
 	//private String name;
 	int hp;
 	//private int hpMax;
 	int level;
 	//private int damage;
 	//private int bankPass;
+	private static String []  item = {"薬草","回復薬","高級回復薬","粉塵","解毒草","解毒薬","高級解毒薬","鬼力の種","鬼力薬","硬化の種","薬"};
 
 	//** 攻撃 **//
 	public abstract void damage(Monster m);
@@ -45,7 +49,7 @@ public abstract class  Player {
 	public abstract void setEXP(int EXP);
 	public abstract int getMaxEXP();
 	//**死亡時**//
-	public abstract void die(Player p,String place);
+	public abstract void die(ArrayList<Player> people,String place);
 
 	//**剣を装備させたときの攻撃力**//
 	public abstract int getDamage();
@@ -70,5 +74,9 @@ public abstract class  Player {
 	//** ランク **//
 	public abstract char getRank();
 	public abstract void setRank(char rank) ;
+
+	//** アイテム数管理 **//
+	public abstract int getItemMany(int a) ;
+	public abstract void setItemMany(int a,int b) ;
 
 }

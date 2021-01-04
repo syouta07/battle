@@ -7,6 +7,21 @@ public class Num {
 	static int no =0;
 
 
+	//**数の入力があった場合**//
+	public static int HowMany() {
+		System.out.print("==>");
+		int ans = 0;
+		try {
+			Scanner a = new Scanner(System.in);
+			ans = a.nextInt();
+		}catch(InputMismatchException e) {
+			Time.TLDA50("数字で入力してください！\n\n");
+			HowMany();
+		}
+		return ans;
+	}
+
+
 	//** 1or2を選択するときに使用 **//
 	public static int or12() {
 		System.out.print("==>");
@@ -75,6 +90,7 @@ public class Num {
 		or123();
 	}
 
+	//1,2,3,4でなかった場合
 	public static int or1234() {
 		System.out.print("==>");
 		try {
@@ -97,7 +113,7 @@ public class Num {
 		or1234();
 	}
 
-	//**1or2でなかった場合**//
+	//**1,2,3,4でなかった場合**//
 	public static void num1234Miss2() {
 		Time.TLDA50("\n※1,2,3,4で入力しなおしてください\n");
 		or1234();
@@ -125,13 +141,13 @@ public class Num {
 	//** 文字列だった場合ループ**//
 	public static void num12345Miss() {
 		Time.TLDA50("\n※数字を入力してください\n");
-		or1234();
+		or12345();
 	}
 
 	//**1or2でなかった場合**//
 	public static void num12345Miss2() {
 		Time.TLDA50("\n※1,2,3,4,5で入力しなおしてください\n");
-		or1234();
+		or12345();
 	}
 
 
@@ -160,30 +176,19 @@ public class Num {
 
 	//**1to6でなかった場合**//
 	public static void num123456Miss2() {
-		Time.TLDA50("\n※1,2,3,4,5で入力しなおしてください\n");
-		or1234();
+		Time.TLDA50("\n※1,2,3,4,5,6で入力しなおしてください\n");
+		or123456();
 	}
 
 
 
-	//**数の入力があった場合**//
-	public static int HowMany() {
-		int ans = 0;
-		try {
-			Scanner a = new Scanner(System.in);
-			ans = a.nextInt();
-		}catch(InputMismatchException e) {
-			Time.TLDA50("数字で入力してください！\n\n");
-			HowMany();
-		}
-		return ans;
-	}
 
+	//1～11
 	public static int or1To11() {
 		System.out.print("==>");
 		try {
 			int ans = new java.util.Scanner(System.in).nextInt();
-			if(!(ans==1 || ans==2 || ans==3 || ans==4 || ans==5 || ans==6 || ans==7 || ans==8 || ans==9 || ans==10 || ans==11)) {
+			if(!(1<=ans && ans<=11)) {
 				num1To11Miss2();
 			}else {
 				no=ans;
@@ -198,13 +203,43 @@ public class Num {
 	//** 文字列だった場合ループ**//
 	public static void num1To11Miss() {
 		Time.TLDA50("\n※数字を入力してください\n");
-		or123456();
+		or1To11();
 	}
 
 	//**1or2でなかった場合**//
 	public static void num1To11Miss2() {
-		Time.TLDA50("\n※1,2,3,4,5で入力しなおしてください\n");
-		or1234();
+		Time.TLDA50("\n※1～11で入力しなおしてください\n");
+		or1To11();
+	}
+
+
+	//1～12
+	public static int or1To12() {
+		System.out.print("==>");
+		try {
+			int ans = new java.util.Scanner(System.in).nextInt();
+			if(!(1<=ans && ans<=12)) {
+				num1To12Miss2();
+			}else {
+				no=ans;
+				return ans;
+			}
+		}catch (InputMismatchException e) {
+			num1To12Miss();
+		}
+		return no;
+	}
+
+	//** 文字列だった場合ループ**//
+	public static void num1To12Miss() {
+		Time.TLDA50("\n※数字を入力してください\n");
+		or1To12();
+	}
+
+	//**1or2でなかった場合**//
+	public static void num1To12Miss2() {
+		Time.TLDA50("\n※1～12で入力しなおしてください\n");
+		or1To12();
 	}
 
 }

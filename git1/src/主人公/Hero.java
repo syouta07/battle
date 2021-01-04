@@ -1,5 +1,7 @@
 package 主人公;
 
+import java.util.ArrayList;
+
 import モンスター.Monster;
 import 機能.Time;
 import 町_ギルド_家_協会_銀行.Home;
@@ -18,7 +20,8 @@ public class Hero extends Player{
 	private String type;//** 属性 **//
 	private String Abnormal;//** 状態異常 **//
 	private char rank;
-	private int [] item=new int [20];
+	private static String []  item = {"薬草","回復薬","高級回復薬","粉塵","解毒草","解毒薬","高級解毒薬","鬼力の種","鬼力薬","硬化の種","薬"};
+
 	//** 主人公の初期値設定 **//
 	public Hero(String name) {
 		this.name = name;
@@ -164,11 +167,11 @@ public class Hero extends Player{
 	//** アイテム **//
 	//[0]:薬草 [1]:回復薬 [2]:高級回復薬 [3]:粉塵 [4]:解毒草 [5]:解毒薬
 	//[6]:高級解毒薬 [7]:鬼人種 [8]:鬼人薬 [9]:忍耐の種 [10]:硬化薬
-	public int getItem(int a) {
-		return this.item[a];
+	public int getItemMany(int a) {
+		return this.itemMany[a];
 	}
-	public void setItem(int a,int b) {
-		this.item[a]=b;
+	public void setItemMany(int a,int b) {
+		this.itemMany[a]=b;
 	}
 
 	//**逃亡**//
@@ -183,10 +186,10 @@ public class Hero extends Player{
 	}
 
 	//**主人公が死んだとき**//
-	public void die(Player p, String place) {
-		Time.TLDA50(p.getName()+"のHPが0になった・・・\n\n");
+	public void die(ArrayList<Player> people, String place) {
+		Time.TLDA50(people.get(0).getName()+"のHPが0になった・・・\n\n");
 		Time.TLDA100("・・・・・・・・\n\n");
-		Home.die(p,place);
+		Home.die(people,place);
 	}
 
 
