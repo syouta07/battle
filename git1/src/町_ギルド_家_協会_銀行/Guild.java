@@ -2,6 +2,7 @@ package 町_ギルド_家_協会_銀行;
 
 import java.util.ArrayList;
 
+import フィールド.Cave;
 import フィールド.Wilderness;
 import 主人公.Player;
 import 機能.Num;
@@ -16,7 +17,7 @@ public class Guild {			//ギルド商会
 	}
 
 	public static void greeting(ArrayList<Player> people){
-		Time.TLDB50(people.get(0).getName()+": [1]:討伐に行く [2]:ランクを確認する [3]:町に戻る");
+		Time.TLDB50(people.get(0).getName()+": [1]:討伐に行く [2]:ランクを確認する [3]:町に戻る\n");
 		int a = Num.or1234();
 		if(a==1) {
 			guildFastAction(people);
@@ -53,34 +54,62 @@ public class Guild {			//ギルド商会
 
 
 		//*モンスター討伐選択作成スライム、ゴーレム、犬*//
-
+		//引数はヒーローインスタンスの配列
 	public static void guildFastAction(ArrayList<Player> people){
-		Time.TLDB50("ギイルドボード・Fランカー案件");
-		Time.TLDB50("----------------------------------");
-		Time.TLDB50("[1]:スライム\t[2]:ゴーレム\t[3]:犬\t[4]:戻る");
-				String [] no= {"スライム","ゴーレム","犬"};
-				int a = Num.or1234();
-				System.out.println(no[a-1]+"を討伐しに行きますか？");
-				System.out.println(people.get(0).getName()+": [1]:はい [2]:いいえ");
-				int b = Num.or12();
+		Time.TLDB50("ギイルドボード・Fランカー案件\n");
+		Time.TLDB50("----------------------------------\n");
+		Time.TLDB50("[1]:荒野\t");
+		Time.TLDB50("\t出現モンスター\n\t\t\t\t・スライム\n\t\t\t\t・ゴーレム\n\t\t\t\t・犬\n");
+		Time.TLDB50("[2]:洞窟\t");
+		Time.TLDB50("\t出現モンスター\n\t\t\t\t・スライム\n\t\t\t\t・ゴーレム\n\t\t\t\t・犬\n");
+		Time.TLDB50("[3]:戻る");
+		String [] monster= {"スライム","ゴーレム","犬"};
+		int a = Num.or12();
 
-				if(a==1) {
-					System.out.println(no[a-1]+"を討伐に行きます");
-					Wilderness.selectGuild(people);
-
-				}else if(a==3){
-					greeting(people);
-				}else {
-					guildFastAction(people);
-				}
+		if(a==1) {
+			Time.TLDB50(people.get(0).getName()+": 荒野に行きますか？\n");
+			int no = Num.random3();
+			Time.TLDB50(people.get(0).getName()+": [1]:はい [2]:いいえ\n");
+			int b = Num.or12();
+			if(b==1) {
+				int finMany = Num.random200To250();
+				Time.TLDB50(people.get(0).getName()+": 討伐に向かいます!\n");
+				Time.TLDB50(g+": 今回のクリア条件は"+monster[no]+"の3体の討伐だよ!\n");
+				Time.TLDB50(g+": 報酬は"+finMany+"\n");
+				Wilderness.selectGuild(people,monster,no,finMany);
+			}else {
+				greeting(people);
+			}
+		}else if(a==2){
+			Time.TLDB50(people.get(0).getName()+": 洞窟に行きますか？\n");
+			//討伐目標のモンスターをランダムで生成
+			int no = Num.random3();
+			Time.TLDB50(people.get(0).getName()+": [1]:はい [2]:いいえ\n");
+			int b = Num.or12();
+			if(b==1) {
+				int finMany = Num.random200To250();
+				Time.TLDB50(people.get(0).getName()+": 討伐に向かいます!\n");
+				Time.TLDB50(g+": 今回のクリア条件は"+monster[no]+"の3体の討伐です!\n");
+				Time.TLDB50(g+": 成功報酬は"+finMany+"だよ!\n\n");
+				Cave.action(people,monster,no,finMany);
+			}else {
+				greeting(people);
+			}
+		}else {
+			greeting(people);
+		}
 	}
-//	public static void reward(ArrayList<Player> people){
-//		Time.TLDB50("討伐報酬の確認だねちょっと待ちな\n");
-//
-//		Time.TLDB50("なんの報酬が見たいんだい？");
-//		Time.TLDB50("1:スライム\n2:ゴーレム\n3:犬\n4:戻る");
-//
-//		//ギルドの挨拶のところに戻る
-//		greeting(people);
-//	}
+
+
+	public static void clear(ArrayList<Player> people){
+
+	}
+
+
+	//リタイヤした時に戻ってくるメソッド
+	public static void Retired(ArrayList<Player> people){
+		Time.TLDB50(g+"リタイヤかい?\n");
+		Time.TLDB50(g+"次から失敗しないように頑張るんだよ!\n");
+		comeBackGreetin(people);
+	}
 }

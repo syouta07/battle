@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import 主人公.Hero;
 import 主人公.Player;
-import 店.Goods;
+import 町_ギルド_家_協会_銀行.Guild;
 
 public class Main {
 
@@ -19,7 +19,10 @@ public class Main {
 		people.get(2).setHp(people.get(2).getHp()-100);
 		people.get(1).setHp(people.get(1).getHp()-100);
 		people.get(0).setAbnormal("毒");
-		Goods.goods1(people);;
+
+
+		Guild.guildFastAction(people);
+//		Goods.goods1(people);
 //		町_ギルド_家_協会_銀行.Home.Friend.add(a);
 //		Home.Action(people);
 

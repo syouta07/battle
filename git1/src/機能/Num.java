@@ -20,7 +20,22 @@ public class Num {
 		}
 		return ans;
 	}
+	//目的のものが現れる確率
+	public static int random2(){
+		int a= new java.util.Random().nextInt(2);
+		return a;
+	}
 
+
+	public static int random3() {
+		int a = new java.util.Random().nextInt(3);
+		return a;
+	}
+
+	public static int random200To250() {
+		int a = new java.util.Random().nextInt((5)+1)*10+(200);
+		return a;
+	}
 
 	//** 1or2を選択するときに使用 **//
 	public static int or12() {
