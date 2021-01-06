@@ -1,5 +1,7 @@
 package モンスター;
 
+import java.util.ArrayList;
+
 import 主人公.Player;
 import 機能.Time;
 
@@ -19,7 +21,7 @@ public class Matango extends Monster {
 		this.EXP = exp;
 	}
 
-	public Player action(Player p,String place){
+	public Player action(ArrayList<Player> people,String place){
 		String [] action = {"様子をうかがっている","急に襲ってきた","眠っている"};
 		int mata= new java.util.Random().nextInt(4);
 		String comment= "キノコが現れたキノコ"+action[mata];
@@ -30,7 +32,7 @@ public class Matango extends Monster {
 			break;
 		case 1:
 			Time.TLDA50(comment+"が"+action[1]+"\n\n");
-			attack(p,place);
+			attack(people,place);
 			break;
 		case 2:
 			Time.TLDA50(comment+"が"+action[2]+"\n\n");
@@ -39,15 +41,17 @@ public class Matango extends Monster {
 		return p;
 	}
 
+//******//
+//** 攻撃を受けた際主人公のHPを削る方法 ****//
 
-	public void attack(Player p,String place){
+	public void attack(ArrayList<Player> people,String place){
 		int at=new java.util.Random().nextInt(9)+2;
-		p.setHp(p.getHp() - at);
-		Time.TLDA50(this.name+"は"+p.getName()+"に"+at+"ダメージ与えた");
-		if(p.getHp()>0) {
-			attack(p,place);
+		people.get(0).setHp(people.get(0).getHp() - at);
+		Time.TLDA50(this.name+"は"+people.get(0).getName()+"に"+at+"ダメージ与えた");
+		if(people.get(0).getHp()>0) {
+			attack(people,place);
 		}else {
-			p.die(p,place);
+			people.get(0).die(people,place);
 		}
 	}
 
@@ -65,8 +69,8 @@ public class Matango extends Monster {
 		}
 	}
 
-	public void poison(Player h,String place) {
-		h.setHp(h.getHp() - 2);
+	public void poison(ArrayList<Player> people,String place) {
+		people.setHp(people(0).getHp() - 2);
 		Time.TLDA80(this.name+"の毒で2ポイントダメージを受け残り"+h.getHp());
 	}
 
@@ -77,13 +81,13 @@ public class Matango extends Monster {
 
 	}
 
-	public void select(Player p,String place) {
+	public void select(ArrayList<Player> people,String place) {
 		int s = new java.util.Random().nextInt(4);
 		if(this.hp>(this.MaxHp/2)) {
 			if(s==0 || s==1) {
-				attack(p,place);
+				attack(people,place);
 			}else {
-				poison(p, place);
+				poison(people, place);
 			}
 		}
 	}
