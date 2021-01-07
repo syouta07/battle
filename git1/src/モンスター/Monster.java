@@ -16,4 +16,9 @@ public abstract class Monster {
 	public abstract int getEXP();
 	public abstract void setEXP(int exp);
 
+	//** HP **//
+	public abstract int getHp();
+	public abstract void setHp(int exp);
+
+
 }
