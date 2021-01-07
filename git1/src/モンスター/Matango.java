@@ -21,7 +21,15 @@ public class Matango extends Monster {
 		this.EXP = exp;
 	}
 
-	public void action(ArrayList<Player> people,String place){
+	//** HP **//
+	public int getHp() {
+		return this.hp;
+	}
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public void action(ArrayList<Player> people,String place,int no){
 		String [] action = {"様子をうかがっている","急に襲ってきた","眠っている"};
 		int mata= new java.util.Random().nextInt(4);
 		String comment= "キノコが現れたキノコ"+action[mata];
@@ -34,7 +42,7 @@ public class Matango extends Monster {
 			break;
 		case 2:
 			Time.TLDA50(comment+"が"+action[1]+"\n\n");
-			attack(people,place);
+			attack(people,place,no);
 			break;
 		case 3:
 			Time.TLDA50(comment+"が"+action[2]+"\n\n");
@@ -45,12 +53,15 @@ public class Matango extends Monster {
 //******//
 //** 攻撃を受けた際主人公のHPを削る方法 ****//
 
-	public void attack(ArrayList<Player> people,String place){
+	public void attack(ArrayList<Player> people,String place,int no){
+		//攻撃力をランダム生成
 		int at=new java.util.Random().nextInt(9)+2;
-		people.get(0).setHp(people.get(0).getHp() - at);
-		Time.TLDA50(this.name+"は"+people.get(0).getName()+"に"+at+"ダメージ与えた");
-		if(people.get(0).getHp()>0) {
-			attack(people,place);
+
+		//モンスターの攻撃を受けたキャラの体力を削る
+		people.get(no).setHp(people.get(no).getHp() - at);
+		Time.TLDA50(this.name+":"+people.get(no).getName()+"に"+at+"ダメージ与えた");
+		if(people.get(no).getHp()>0) {
+			attack(people,place,no);
 		}else {
 			people.get(0).die(people,place);
 		}
@@ -75,27 +86,17 @@ public class Matango extends Monster {
 		Time.TLDA80(this.name+"の毒で2ポイントダメージを受け残り"+people.get(0).getHp());
 	}
 
-	@Override
-	public void die(Player p,Monster m) {
+	public void die(ArrayList<Player> people,Monster m) {
 		Time.TLDA50(m.name+"は力尽きた\n");
-		Time.TLDA50(p.getName()+"は"+m.getEXP()+"得た‼‼"+p.getLevel()+1);
-
-	}
-
-	public void select(ArrayList<Player> people,String place) {
-		int s = new java.util.Random().nextInt(4);
-		if(this.hp>(this.MaxHp/2)) {
-			if(s==0 || s==1) {
-				attack(people,place);
-			}else {
-				poison(people, place);
-			}
+		for(int i=0; i<people.size(); i++) {
+			Time.TLDA50(people.get(i).getName()+"は"+(m.getEXP()/people.size())+"得た‼‼"+people.get(i).getLevel());
 		}
+
+
 	}
 
-	private void run() {
-		Time.TLDA50(this.name+"は逃げ出した。");
-	}
+
+
 
 
 
