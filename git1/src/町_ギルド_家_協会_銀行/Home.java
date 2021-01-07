@@ -10,7 +10,8 @@ public class Home {
 
 //** アイテム管理ボックス **//
 //[0]:薬草 [1]:回復薬 [2]:高級回復薬 [3]:粉塵 [4]:解毒草 [5]:解毒薬 [6]:高級解毒薬 [7]:鬼力の種 [8]:硬化の種 [9]:鬼力薬 [10]:硬化薬
- private static String []  item = {"薬草","回復薬","高級回復薬","粉塵","解毒草","解毒薬","高級解毒薬","鬼力の種","硬化の種","鬼力薬","硬化薬"};
+ private static String []  item = {"薬草","回復薬","高級回復薬","粉塵","解毒草","解毒薬","高級解毒薬","鬼力の種","硬化の種","鬼力薬"
+ 		+ "","硬化薬"};
  private static int []  itemMany= new int [11];
  public static ArrayList<Player> Friend = new ArrayList<Player>();
 

@@ -1,4 +1,6 @@
-package バトル11_26;
+package 戦闘;
+
+import java.util.ArrayList;
 
 import モンスター.Monster;
 import 主人公.Player;
@@ -24,13 +26,14 @@ public class battleChoice {
 			break;
 		default:
 			choice(p,m);
+
 		}
 	}
 
-	static void monsterChoice(Player p,Monster m,String place) {
+	static void monsterChoice(ArrayList<Player> people,Monster m,String place) {
 		if(m.hp>=m.hp/2) {
 			if((int)Math.random()*3/4==0){
-				m.attack(p,place);
+				m.attack(people,place);
 			}else if((int)Math.random()*2==0) {
 
 			}

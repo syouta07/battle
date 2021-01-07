@@ -11,6 +11,7 @@ import 機能.Time;
 public class Guild {			//ギルド商会
 							/*ヒーローランクの定義*/
 	static String g = "ギルド: ";
+	static int finMany=0;
 	public static void fastGreeting(ArrayList<Player> people){
 		Time.TLDB50(g+"こんにちは!\n");
 		greeting(people);
@@ -46,10 +47,8 @@ public class Guild {			//ギルド商会
 	}
 
 	public static void comeBackGreetin(ArrayList<Player> people){
-		Time.TLDB50(g+"クエストお疲れ様!\n");
 		Time.TLDB50(g+"次は何をするかい？\n");
 		greeting(people);
-
 	}
 
 
@@ -72,11 +71,11 @@ public class Guild {			//ギルド商会
 			Time.TLDB50(people.get(0).getName()+": [1]:はい [2]:いいえ\n");
 			int b = Num.or12();
 			if(b==1) {
-				int finMany = Num.random200To250();
+				finMany = Num.random200To250();
 				Time.TLDB50(people.get(0).getName()+": 討伐に向かいます!\n");
 				Time.TLDB50(g+": 今回のクリア条件は"+monster[no]+"の3体の討伐だよ!\n");
 				Time.TLDB50(g+": 報酬は"+finMany+"\n");
-				Wilderness.selectGuild(people,monster,no,finMany);
+				Wilderness.select(people,monster,no);
 			}else {
 				greeting(people);
 			}
@@ -102,7 +101,10 @@ public class Guild {			//ギルド商会
 
 
 	public static void clear(ArrayList<Player> people){
-
+		Time.TLDB50(g+"依頼達成おめでとう!");
+		Time.TLDB50(people.get(0).getName()+":依頼報酬を受け取りました!"+Player.many+" → "+(Player.many+finMany));
+		Player.many+=finMany;
+		comeBackGreetin(people);
 	}
 
 
@@ -110,6 +112,10 @@ public class Guild {			//ギルド商会
 	public static void Retired(ArrayList<Player> people){
 		Time.TLDB50(g+"リタイヤかい?\n");
 		Time.TLDB50(g+"次から失敗しないように頑張るんだよ!\n");
+		Time.TLDB50(people.get(0).getName()+":報酬予定額の半分が引かれました..."+Player.many+" → "+(Player.many-finMany)+"\n\n");
+
+		//所持金から違約金を引く
+		Player.many=-finMany;
 		comeBackGreetin(people);
 	}
 }

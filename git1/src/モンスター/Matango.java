@@ -21,24 +21,25 @@ public class Matango extends Monster {
 		this.EXP = exp;
 	}
 
-	public Player action(ArrayList<Player> people,String place){
+	public void action(ArrayList<Player> people,String place){
 		String [] action = {"様子をうかがっている","急に襲ってきた","眠っている"};
 		int mata= new java.util.Random().nextInt(4);
 		String comment= "キノコが現れたキノコ"+action[mata];
 
 		switch(mata) {
 		case 0:
-			Time.TLDA50(comment+"は"+action[0]+"\n\n");
-			break;
 		case 1:
+			Time.TLDA50(comment+"は"+action[0]+"\n\n");
+
+			break;
+		case 2:
 			Time.TLDA50(comment+"が"+action[1]+"\n\n");
 			attack(people,place);
 			break;
-		case 2:
+		case 3:
 			Time.TLDA50(comment+"が"+action[2]+"\n\n");
 			break;
 		}
-		return p;
 	}
 
 //******//
@@ -70,8 +71,8 @@ public class Matango extends Monster {
 	}
 
 	public void poison(ArrayList<Player> people,String place) {
-		people.setHp(people(0).getHp() - 2);
-		Time.TLDA80(this.name+"の毒で2ポイントダメージを受け残り"+h.getHp());
+		people.get(0).setHp(people.get(0).getHp() - 2);
+		Time.TLDA80(this.name+"の毒で2ポイントダメージを受け残り"+people.get(0).getHp());
 	}
 
 	@Override
@@ -95,10 +96,6 @@ public class Matango extends Monster {
 	private void run() {
 		Time.TLDA50(this.name+"は逃げ出した。");
 	}
-
-
-
-
 
 
 
