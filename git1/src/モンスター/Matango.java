@@ -29,7 +29,21 @@ public class Matango extends Monster {
 		this.hp = hp;
 	}
 
-	public void action(ArrayList<Player> people,String place,int no){
+	//コンストラクタ
+	public Matango(String name){
+		this.name = name;
+	}
+
+	//** Name **//
+	public String getName() {
+		return this.name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public void action(ArrayList<Player> people,String fieldName){
 		String [] action = {"様子をうかがっている","急に襲ってきた","眠っている"};
 		int mata= new java.util.Random().nextInt(4);
 		String comment= "キノコが現れたキノコ"+action[mata];
@@ -42,7 +56,7 @@ public class Matango extends Monster {
 			break;
 		case 2:
 			Time.TLDA50(comment+"が"+action[1]+"\n\n");
-			attack(people,place,no);
+			attack(people,fieldName);
 			break;
 		case 3:
 			Time.TLDA50(comment+"が"+action[2]+"\n\n");
@@ -94,10 +108,4 @@ public class Matango extends Monster {
 
 
 	}
-
-
-
-
-
-
 }

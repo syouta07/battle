@@ -2,7 +2,10 @@ package フィールド;
 
 import java.util.ArrayList;
 
+import モンスター.Matango;
+import モンスター.Monster;
 import 主人公.Player;
+import 戦闘.battleChoice;
 import 機能.Num;
 import 機能.Time;
 import 町_ギルド_家_協会_銀行.Guild;
@@ -13,6 +16,14 @@ public class Wilderness {
 	static String [] monsterList;
 	static String name;
 
+	public static ArrayList<Monster> newMonster(int b){
+		ArrayList<Monster> MonsterList =new ArrayList<Monster>();
+		for(int i=0; i<b; i++) {
+			Monster m = new Matango("naem"+i+":");
+			MonsterList.add(m);
+		}
+		return MonsterList;
+	}
 	//薬草の最大獲得数を判定するための変数
 	static int HerbsSearch=0;
 
@@ -28,7 +39,7 @@ public class Wilderness {
 	public static void select(ArrayList<Player>people,String [] monster,int no){
 		monsterList = monster;
 
-			//生きているキャラクターの名前を表示する
+		//生きているチームメンバーの名前を表示する
 		nameAlive(people);
 
 
@@ -54,7 +65,7 @@ public class Wilderness {
 			if(b>=1) {
 				hantMonster(people);
 			}else {
-				System.out.println("何もないようだ\n");
+				Time.TLDB50(name+"\n何もないようだ\n");
 			}
 				//荒野の選択に戻る
 			select(people,monster,no);
@@ -66,7 +77,11 @@ public class Wilderness {
 	}
 
 	public static void hantMonster(ArrayList<Player>people){
-
+		int a = Num.random3();
+		int b = Num.random3();
+		Time.TLDB50(monsterList[a]+"が"+b+"匹現れた❕\n\n");
+		ArrayList<Monster> MonserList = newMonster(b);
+		battleChoice.choice(people,MonserList);
 	}
 
 		//先頭のキャラクターが死亡した場合生きているメンバーの名前を表示する

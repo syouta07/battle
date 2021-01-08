@@ -46,7 +46,7 @@ static int no =0;
 			Time.TLDA80("少ないがこれだけあれば足りるだろう\n");
 			System.out.print("名無し:");
 			Time.TLDA100("村長から1000ゴールドもらった");
-			p.many=1000;
+			Player.many=1000;
 		}else {
 			System.out.print(p.getName()+":");
 			Time.TLDA100("(・・・これ以上迷惑をかけられないここは歩いて行こう！・・・)");

@@ -1,7 +1,9 @@
-package バトル11_26;
+package Main;
 
 import java.util.ArrayList;
 
+import モンスター.Matango;
+import モンスター.Monster;
 import 主人公.Hero;
 import 主人公.Player;
 import 町_ギルド_家_協会_銀行.Guild;
@@ -20,6 +22,16 @@ public class Main {
 		people.get(1).setHp(people.get(1).getHp()-100);
 		people.get(0).setAbnormal("毒");
 
+		ArrayList<Monster> MonsterList =new ArrayList<Monster>();
+
+		for(int i=0; i<4; i++) {
+			Monster m = new Matango("naem"+i);
+			MonsterList.add(m);
+		}
+
+		for(int i=0; i<4; i++) {
+			System.out.println(MonsterList.get(i).getName());
+		}
 
 		Guild.guildFastAction(people);
 //		Goods.goods1(people);

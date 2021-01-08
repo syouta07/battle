@@ -93,7 +93,6 @@ public class HpRecovery {
 	//** 全体回復の粉塵を使用した場合 **//
 	public static void AllRecoveryAgents(ArrayList<Player> list) {
 		Time.TLDA50(list.get(0).getName()+": 粉塵を使用した!");
-		int a = list.get(0).getName().length();
 
 		//** 格納した人数分の配列を回す **//
 		for(int i=0; i<list.size(); i++) {
